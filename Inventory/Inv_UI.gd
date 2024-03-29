@@ -14,13 +14,11 @@ func update_slots():
 		slots[i].update(inv.items[i])
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_DELETE:
-			print("DELETE was pressed")
-			if inv_open:
-				close()
-			else:
-				open()
+	if Input.is_action_just_pressed("Inventory"):
+		if inv_open:
+			close()
+		else:
+			open()
 
 
 func close():
