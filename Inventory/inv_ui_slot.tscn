@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpj7yi1pom1hq"]
+
+[ext_resource type="Texture2D" uid="uid://cs6kg7wisdmps" path="res://icons/dummy/Inventory_Tile.png" id="1_0o1gy"]
+[ext_resource type="Script" path="res://Inventory/inv_ui_slot.gd" id="1_gx4ym"]
+
+[node name="Inv_UI_Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(55, 55)
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.025
+anchor_right = 0.029
+anchor_bottom = 0.051
+offset_left = -26.88
+offset_top = -27.0
+offset_right = -0.68
+offset_bottom = -0.0800018
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gx4ym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("1_0o1gy")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -27.5
+offset_right = 27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Item_Display" type="Sprite2D" parent="CenterContainer/Panel"]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6f6ebkcd4ers" path="res://assets/Background/Pink.png" id="1_c0wr7"]
 [ext_resource type="Texture2D" uid="uid://jln6cg53ypjq" path="res://assets/Terrain/Terrain (16x16).png" id="2_rkeko"]
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/main_character.tscn" id="3_p3ibi"]
+[ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="4_nxttg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
 texture = ExtResource("2_rkeko")
@@ -528,3 +529,10 @@ metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
+
+[node name="Inv_UI" parent="Node/CharacterBody2D" instance=ExtResource("4_nxttg")]
+z_index = 5
+offset_left = 290.0
+offset_top = 704.0
+offset_right = 376.0
+offset_bottom = 770.0
