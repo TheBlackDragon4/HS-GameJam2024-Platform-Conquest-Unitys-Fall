@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=7 format=3 uid="uid://bpa5og3fnpu7f"]
 
+[ext_resource type="Script" path="res://scene/main.gd" id="1_1573s"]
 [ext_resource type="Texture2D" uid="uid://c6f6ebkcd4ers" path="res://assets/Background/Pink.png" id="1_c0wr7"]
 [ext_resource type="Texture2D" uid="uid://jln6cg53ypjq" path="res://assets/Terrain/Terrain (16x16).png" id="2_rkeko"]
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://scene/main_character.tscn" id="3_p3ibi"]
@@ -466,6 +467,39 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gshfq")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_1573s")
+
+[node name="Pause_Menu" type="Node" parent="."]
+
+[node name="Pause_Window" type="Window" parent="Pause_Menu"]
+title = "Pause"
+initial_position = 1
+size = Vector2i(300, 300)
+visible = false
+
+[node name="Button_resume" type="Button" parent="Pause_Menu/Pause_Window"]
+y_sort_enabled = true
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Resume"
+flat = true
+
+[node name="Button_quit" type="Button" parent="Pause_Menu/Pause_Window"]
+y_sort_enabled = true
+clip_contents = true
+offset_top = 20.0
+offset_right = 42.0
+offset_bottom = 51.0
+size_flags_vertical = 0
+text = "Quit"
+flat = true
+
+[node name="Blur" type="ColorRect" parent="Pause_Menu"]
+visible = false
+z_index = 1000
+offset_right = 1925.0
+offset_bottom = 1093.0
+color = Color(0.439216, 0.439216, 0.439216, 0.784314)
 
 [node name="Node" type="Node" parent="."]
 
@@ -478,6 +512,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_c0wr7")
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="Node"]
 texture_filter = 1
@@ -485,6 +520,11 @@ scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ognqk")
 format = 2
 layer_0/tile_data = PackedInt32Array(393222, 524288, 0, 1048576, 458752, 0, 1048577, 458752, 0, 1048578, 458752, 0, 1048579, 458752, 0, 1048580, 458752, 0, 1048581, 458752, 0, 1048582, 458752, 0, 1048583, 458752, 0, 1048587, 458752, 0, 1048588, 458752, 0, 1048589, 458752, 0, 1048590, 458752, 0, 1048591, 458752, 0, 1048592, 458752, 0, 1048593, 458752, 0, 1048594, 458752, 0, 1048596, 458752, 0, 1048597, 458752, 0, 1048598, 458752, 0, 1048599, 458752, 0, 1048600, 458752, 0, 1048601, 458752, 0, 1048602, 458752, 0, 1048603, 458752, 0, 1048604, 458752, 0, 1048605, 458752, 0, 983048, 393216, 0, 1048584, 393216, 1, 983049, 458752, 0, 1048585, 458752, 1, 1048586, 524288, 1, 851981, 393216, 0, 917517, 393216, 1, 983053, 393216, 2, 851982, 458752, 0, 917518, 458752, 1, 983054, 458752, 2, 851983, 524288, 0, 917519, 524288, 1, 983055, 524288, 2, 458770, 393216, 0, 524306, 393216, 1, 458771, 458752, 0, 524307, 458752, 1, 458772, 524288, 0, 524308, 524288, 1, 589842, 393216, 1, 589843, 458752, 1, 589844, 524288, 1, 655378, 393216, 1, 655379, 458752, 1, 655380, 524288, 1, 720914, 393216, 1, 720915, 458752, 1, 720916, 524288, 1, 786450, 458752, 1, 786452, 524288, 1, 851986, 458752, 1, 851988, 524288, 1, 917522, 458752, 1, 917524, 524288, 1, 983058, 458752, 1, 983060, 524288, 1, 786449, 393216, 0, 851985, 393216, 1, 917521, 393216, 1, 983057, 393216, 1, 1048595, 458752, 0, 786451, 458752, 1, 851987, 458752, 1, 917523, 458752, 1, 983059, 458752, 1, 327702, 393216, 0, 393238, 393216, 1, 327703, 458752, 0, 393239, 589824, 0, 327704, 458752, 0, 393240, 655360, 0, 327705, 458752, 0, 393241, 458752, 1, 327706, 458752, 0, 393242, 458752, 1, 327707, 458752, 0, 327708, 458752, 0, 393244, 458752, 1, 327709, 458752, 0, 393245, 458752, 1, 458774, 393216, 2, 458775, 589824, 1, 458776, 655360, 1, 458779, 589824, 0, 458780, 655360, 0, 524315, 589824, 1, 524316, 655360, 1, 393243, 458752, 1, 524311, 393216, 2, 524312, 458752, 2, 524313, 458752, 2, 524314, 458752, 1, 589851, 458752, 2, 589852, 458752, 2, 589853, 458752, 2, 589850, 393216, 2, 458777, 458752, 1, 458778, 458752, 1, 458781, 458752, 1, 524317, 458752, 1, 393220, 393216, 0, 458756, 393216, 1, 524292, 393216, 2, 393221, 458752, 0, 458757, 458752, 1, 524293, 458752, 2, 458758, 524288, 1, 524294, 524288, 2, 262144, 393216, 0, 327680, 393216, 1, 393216, 393216, 2, 262145, 458752, 0, 327681, 458752, 1, 393217, 458752, 2, 262146, 524288, 0, 327682, 524288, 1, 393218, 524288, 2, 983050, 524288, 0, 327699, 1179648, 1, 327700, 1179648, 1, 327701, 1179648, 1, 327696, 1114112, 1, 327697, 1179648, 1, 327698, 1179648, 1)
+metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" parent="Node" instance=ExtResource("3_p3ibi")]
 position = Vector2(-352, 1)
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
