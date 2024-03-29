@@ -34,7 +34,9 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, 40)
 
-	move_and_slide()
 
-	var isLeft = velocity.x < 0
-	main_character_sprite.flip_h = isLeft
+
+	if(!Global.game_freeze):
+		move_and_slide()
+		var isLeft = velocity.x < 0
+		main_character_sprite.flip_h = isLeft
