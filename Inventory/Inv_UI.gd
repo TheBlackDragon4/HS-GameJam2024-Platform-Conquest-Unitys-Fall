@@ -9,6 +9,7 @@ var slotArray = []
 var currentPos = 0
 
 @onready var dialog = $DeleteDialog
+@onready var equipButton = $DeleteDialog/HBoxContainer/Equip
 @onready var deleteButton = $DeleteDialog/HBoxContainer/Delete
 @onready var cancelButton = $DeleteDialog/HBoxContainer/Cancel
 
@@ -23,15 +24,18 @@ func update_slots():
 		slots[i].update(inv.items[i])
 
 func _process(_delta):
-	
+	if Input.is_action_just_pressed("Inventory") and dialog.visible:
+			equipButton.emit_signal("pressed")
+			dialog.visible = false
+			#print("second: ",dialog.visible)
 	if Input.is_action_just_pressed("menu_first") and dialog.visible:
-				deleteButton.emit_signal("pressed")
-				dialog.visible = false
-				print("first: ",dialog.visible)
+			deleteButton.emit_signal("pressed")
+			dialog.visible = false
+			#print("first: ",dialog.visible)
 	if Input.is_action_just_pressed("menu_second") and dialog.visible:
 			cancelButton.emit_signal("pressed")
 			dialog.visible = false
-			print("second: ",dialog.visible)
+			#print("second: ",dialog.visible)
 
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
@@ -57,7 +61,7 @@ func _input(_event):
 		
 		match action:
 			"left":
-				if currentPos > 1:
+				if currentPos > 0:
 					currentPos = currentPos-1
 				else:
 					currentPos = currentPos-1+12
@@ -67,21 +71,21 @@ func _input(_event):
 				else:
 					currentPos = currentPos+1-12
 			"jump":
-				if currentPos > 4:
+				if currentPos > 3:
 					currentPos = currentPos-4
 				else:
 					currentPos = currentPos+12-4
 			"interact":
-				if currentPos < 6:
-					currentPos = currentPos+4
+				if currentPos < 8:
+					currentPos = currentPos-8+4
 				else:
-					currentPos = currentPos-12+4
+					currentPos = currentPos+4
 					
 		selectedSlot = slotArray[currentPos]
 		selectedSlot.get_node("Sprite2D").animation = "selected"
 		
 		if Input.is_action_just_pressed("delete_item"):
-			if !inv.items[currentPos] == null:
+			if inv.items[currentPos] != null and currentPos != 0:
 				dialog.visible = true
 
 func close():
@@ -97,4 +101,10 @@ func open():
 
 func _on_delete_pressed():
 	inv.items[currentPos] = null
+	update_slots()
+
+func _on_equip_pressed():
+	var prevEquipedItem = inv.items[0]
+	inv.items[0] = inv.items[currentPos]
+	inv.items[currentPos] = prevEquipedItem
 	update_slots()
