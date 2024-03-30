@@ -14,10 +14,13 @@ func update_slots():
 		slots[i].update(inv.items[i])
 
 func _input(event):
+	if Input.is_action_just_pressed("interact"):
+		update_slots()
 	if Input.is_action_just_pressed("Inventory"):
 		if inv_open:
 			close()
 		else:
+			update_slots()
 			open()
 
 

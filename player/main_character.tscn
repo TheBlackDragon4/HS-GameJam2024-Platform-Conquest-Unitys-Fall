@@ -188,6 +188,7 @@ animations = [{
 size = Vector2(103, 133)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(0, -38)
 script = ExtResource("1_b3sao")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
