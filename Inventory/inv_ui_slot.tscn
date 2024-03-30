@@ -67,3 +67,4 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Item_Display" type="Sprite2D" parent="CenterContainer/Panel"]
+z_index = 2
