@@ -13,11 +13,14 @@ var currentPos = 0
 @onready var deleteButton = $DeleteDialog/HBoxContainer/Delete
 @onready var cancelButton = $DeleteDialog/HBoxContainer/Cancel
 
+@onready var weapon = slots[0]
+
 func _ready():
 	update_slots()
 	close()
 	for slot in $NinePatchRect/GridContainer.get_children():
 		slotArray.append(slot)
+	Global.weapon = weapon
 
 func update_slots():
 	for i in range(min(inv.items.size(), slots.size())):
@@ -66,7 +69,7 @@ func _input(_event):
 				else:
 					currentPos = currentPos+11
 			"right":
-				if currentPos < 9:
+				if currentPos < 11:
 					currentPos = currentPos+1
 				else:
 					currentPos = currentPos-11
@@ -80,7 +83,7 @@ func _input(_event):
 				if currentPos < 8:
 					currentPos = currentPos+4
 				else:
-					currentPos = currentPos-8
+					currentPos = currentPos+4-12
 					
 		selectedSlot = slotArray[currentPos]
 		selectedSlot.get_node("Sprite2D").animation = "selected"
@@ -108,4 +111,6 @@ func _on_equip_pressed():
 	var prevEquipedItem = inv.items[0]
 	inv.items[0] = inv.items[currentPos]
 	inv.items[currentPos] = prevEquipedItem
+	Global.weapon = inv.items[0]
+	print(Global.weapon.texture)
 	update_slots()
