@@ -10,7 +10,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("open_door"):
 		for body in get_overlapping_bodies():
-			if body.name == "CharacterBody2D":
+			if body.name == "CharacterBody2D" and !aSpride2D.is_playing():
 				aSpride2D.play("default", 1.0, false)
 				aSpride2D.frame = 0				
 				#get_tree().change_scene_to_file(sceneChanger+".tscn")
