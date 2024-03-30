@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bafqdsep4y8a8"]
+[gd_scene load_steps=10 format=3 uid="uid://bafqdsep4y8a8"]
 
 [ext_resource type="Script" path="res://door/scripts/door.gd" id="1_fab8i"]
-[ext_resource type="Texture2D" uid="uid://banxniyd1ht0l" path="res://assets/Door/Idle.png" id="1_t506b"]
 [ext_resource type="Texture2D" uid="uid://vk8srptiryos" path="res://assets/Door/Opening (46x56).png" id="3_btr4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6o4fm"]
@@ -47,16 +46,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_3b47n"]
-resource_name = "Opening door"
-length = 26.0
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_aefs8"]
-_data = {
-"Opening door": SubResource("Animation_3b47n")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y0py"]
 size = Vector2(40.5497, 87.0251)
 
@@ -64,21 +53,12 @@ size = Vector2(40.5497, 87.0251)
 collision_layer = 2
 script = ExtResource("1_fab8i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("1_t506b")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -9.53674e-07)
 scale = Vector2(1.19565, 1.41071)
 sprite_frames = SubResource("SpriteFrames_u2al6")
 frame_progress = 0.529187
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_aefs8")
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3.57628e-07, -0.250001)
