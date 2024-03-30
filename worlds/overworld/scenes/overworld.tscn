@@ -480,33 +480,45 @@ script = ExtResource("1_jomnk")
 [node name="Pause_Window" type="Window" parent="Pause_Menu"]
 title = "Pause"
 initial_position = 1
-size = Vector2i(300, 300)
+size = Vector2i(200, 200)
 visible = false
 
-[node name="Button_resume" type="Button" parent="Pause_Menu/Pause_Window"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Menu/Pause_Window"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -62.5
+offset_right = 48.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_resume" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
 y_sort_enabled = true
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
 text = "Resume"
 flat = true
 
-[node name="Button_quit" type="Button" parent="Pause_Menu/Pause_Window"]
+[node name="Button_menu" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+text = "Main Menu"
+flat = true
+
+[node name="Button_quit" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
 y_sort_enabled = true
 clip_contents = true
-offset_top = 20.0
-offset_right = 42.0
-offset_bottom = 51.0
+layout_mode = 2
 size_flags_vertical = 0
 text = "Quit"
 flat = true
 
-[node name="Button_menu" type="Button" parent="Pause_Menu/Pause_Window"]
-clip_contents = true
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 71.0
-text = "Main Menu"
-flat = true
+[node name="MarginContainer" type="MarginContainer" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 60
 
 [node name="Blur" type="ColorRect" parent="Pause_Menu"]
 visible = false
@@ -566,6 +578,6 @@ scale = Vector2(5.56, 5.56)
 position = Vector2(-490, 982)
 scale = Vector2(4, 4)
 
-[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]

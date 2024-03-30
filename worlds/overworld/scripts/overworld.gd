@@ -51,3 +51,6 @@ func _on_button_menu_pressed():
 	pause_window.visible = false
 	Global.game_freeze = false
 	get_tree().change_scene_to_file("res://menu/scenes/main_menu.tscn")
+
+
+
