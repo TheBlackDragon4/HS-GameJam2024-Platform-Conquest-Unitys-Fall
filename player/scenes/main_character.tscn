@@ -123,7 +123,7 @@ size = Vector2(60.5, 120)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
 position = Vector2(0, -38)
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_b3sao")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
