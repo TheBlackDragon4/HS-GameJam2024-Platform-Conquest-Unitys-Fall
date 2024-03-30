@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=31 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
 [ext_resource type="Texture2D" uid="uid://cwgfviktcgpd5" path="res://assets/Main Characters/Pink Man/Idle (32x32).png" id="2_07yvv"]
 [ext_resource type="Texture2D" uid="uid://vwni1lv2wvn" path="res://assets/Main Characters/Pink Man/Jump (32x32).png" id="3_32tby"]
 [ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
+[ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="5_t2qad"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qq0x8"]
 atlas = ExtResource("2_07yvv")
@@ -188,6 +189,7 @@ animations = [{
 size = Vector2(103, 133)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 position = Vector2(0, -38)
 collision_mask = 2
 script = ExtResource("1_b3sao")
@@ -209,3 +211,5 @@ shape = SubResource("RectangleShape2D_uhlol")
 position = Vector2(411, 972)
 limit_smoothed = true
 editor_draw_limits = true
+
+[node name="Inv_UI" parent="." instance=ExtResource("5_t2qad")]

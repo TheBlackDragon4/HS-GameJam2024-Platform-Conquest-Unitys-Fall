@@ -18,7 +18,6 @@ func _process(delta):
 				interact_label.visible = false
 
 func _input(event):
-	print(isNear)
 	if !get_parent().isChopped:
 		if event.is_action_pressed("interact"):
 			for body in get_overlapping_bodies():
