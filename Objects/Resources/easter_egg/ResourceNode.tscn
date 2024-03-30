@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://p0w5efgmlvfm"]
+
+[ext_resource type="Script" path="res://Objects/Resources/easter_egg/ResourceNode.gd" id="1_2mja4"]
+[ext_resource type="Script" path="res://Objects/Resources/easter_egg/pickable_area.gd" id="2_246xb"]
+[ext_resource type="Texture2D" uid="uid://7f4ru3ei45bw" path="res://Objects/Resources/easter_egg/resources/easterEgg.png" id="3_iwq0q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yakwc"]
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyio"]
+size = Vector2(26, 31)
+
+[node name="easter_Egg" type="Node2D"]
+position = Vector2(171, 977)
+script = ExtResource("1_2mja4")
+
+[node name="pickable_area" type="Area2D" parent="."]
+script = ExtResource("2_246xb")
+
+[node name="interact_label" type="Label" parent="pickable_area"]
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 135.0
+offset_bottom = 3.0
+scale = Vector2(0.2, 0.2)
+text = "Press ↓ to interact!"
+label_settings = SubResource("LabelSettings_yakwc")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ppyio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_iwq0q")
