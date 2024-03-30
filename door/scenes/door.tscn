@@ -47,7 +47,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y0py"]
-size = Vector2(40.5497, 87.0251)
+size = Vector2(33.0357, 70.4315)
 
 [node name="Door" type="Area2D"]
 collision_layer = 2
@@ -56,13 +56,13 @@ script = ExtResource("1_fab8i")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -9.53674e-07)
-scale = Vector2(1.19565, 1.41071)
+scale = Vector2(3.36, 3.964)
 sprite_frames = SubResource("SpriteFrames_u2al6")
 frame_progress = 0.529187
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.57628e-07, -0.250001)
-scale = Vector2(0.986445, 0.925021)
+position = Vector2(0.500001, -2.86102e-06)
+scale = Vector2(3.36, 3.152)
 shape = SubResource("RectangleShape2D_3y0py")
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
