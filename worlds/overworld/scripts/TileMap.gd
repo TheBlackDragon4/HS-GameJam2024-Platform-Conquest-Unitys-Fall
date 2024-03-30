@@ -8,7 +8,7 @@ extends TileMap
 
 
 # Called when the node enters the scene tree for the first time.
-#func _ready():
+func _ready():	
 	
 	# So that the camera can't move out of screen in the bottom
 	#camera.limit_bottom = get_viewport().get_visible_rect().size.y
@@ -17,7 +17,7 @@ extends TileMap
 
 	#print(map_to_world(get_viewport().get_visible_rect()))
 	#print(tile_map.get_used_rect())
-	#pass
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
