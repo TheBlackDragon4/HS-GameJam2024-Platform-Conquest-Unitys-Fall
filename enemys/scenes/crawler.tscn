@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://86dkt0ldjmam"]
+
+[ext_resource type="Script" path="res://enemys/scripts/crawler.gd" id="1_ham0p"]
+[ext_resource type="Texture2D" uid="uid://dgrv2vnvj5rta" path="res://icon.svg" id="2_bhbi5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx02d"]
+size = Vector2(128, 128)
+
+[node name="enemy_Crawler" type="CharacterBody2D"]
+top_level = true
+script = ExtResource("1_ham0p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bhbi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+shape = SubResource("RectangleShape2D_dx02d")
