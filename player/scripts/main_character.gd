@@ -30,6 +30,8 @@ func _physics_process(delta):
 	# If opened Inventory
 	if isFreezed:
 		move_and_slide()
+		if is_on_floor():
+			velocity.x = 0
 		return
 
 	# Handle jump.

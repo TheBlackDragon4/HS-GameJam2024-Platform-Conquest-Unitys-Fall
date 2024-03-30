@@ -30,7 +30,7 @@ func _input(_event):
 			update_slots()
 			open()
 	if inv_open:
-		if Input.is_action_just_pressed("left"):
+		if Input.is_action_pressed("left"):
 			if !currentPos < 1:
 				selectedSlot.get_node("Sprite2D").animation = "default"
 				currentPos = currentPos-1
@@ -41,7 +41,7 @@ func _input(_event):
 				currentPos = currentPos-1+12
 				selectedSlot = slotArray[currentPos]
 				selectedSlot.get_node("Sprite2D").animation = "selected"				
-		if Input.is_action_just_pressed("right"):
+		if Input.is_action_pressed("right"):
 			if !currentPos > 10:
 				selectedSlot.get_node("Sprite2D").animation = "default"
 				currentPos = currentPos+1
@@ -52,7 +52,7 @@ func _input(_event):
 				currentPos = currentPos+1-12
 				selectedSlot = slotArray[currentPos]
 				selectedSlot.get_node("Sprite2D").animation = "selected"
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_pressed("jump"):
 			if !currentPos < 4:
 				selectedSlot.get_node("Sprite2D").animation = "default"
 				currentPos = currentPos-4
@@ -63,7 +63,7 @@ func _input(_event):
 				currentPos = currentPos+12-4
 				selectedSlot = slotArray[currentPos]
 				selectedSlot.get_node("Sprite2D").animation = "selected"
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_pressed("interact"):
 			if !currentPos > 7:
 				selectedSlot.get_node("Sprite2D").animation = "default"
 				currentPos = currentPos+4
@@ -74,6 +74,19 @@ func _input(_event):
 				currentPos = currentPos-12+4
 				selectedSlot = slotArray[currentPos]
 				selectedSlot.get_node("Sprite2D").animation = "selected"
+		
+		if Input.is_action_just_pressed("delete_item"):
+			if !slotArray[currentPos] == null:
+				var dialog = $DeleteDialog
+				var deleteButton = $DeleteDialog/HBoxContainer/Delete
+				var cancelButton = $DeleteDialog/HBoxContainer/Cancel
+				dialog.visible = true
+				if Input.is_action_just_pressed("confirm_delete"):
+					deleteButton.emit_signal("pressed")
+					dialog.visible = false
+				if Input.is_action_just_pressed("cancel"):
+					cancelButton.emit_signal("pressed")
+					dialog.visible = false
 				
 
 
