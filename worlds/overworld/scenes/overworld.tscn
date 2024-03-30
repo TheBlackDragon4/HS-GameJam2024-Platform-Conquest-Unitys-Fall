@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=14 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://worlds/overworld/scripts/overworld.gd" id="1_jomnk"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_ca51d"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="6_8hils"]
 [ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="7_ustfd"]
 [ext_resource type="PackedScene" uid="uid://cr0nbmg7auouw" path="res://Objects/Resources/ResourceNode_Tree.tscn" id="8_3f1h7"]
-[ext_resource type="PackedScene" uid="uid://cjo3xf30agtbl" path="res://enemys/scenes/enemy_spwner.tscn" id="8_foorc"]
-[ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/crawler.tscn" id="9_hj2dw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
 texture = ExtResource("3_ytwgx")
@@ -618,9 +616,19 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_vt46h")
 disabled = true
 
+[node name="left2" type="CollisionShape2D" parent="Node/World Boarder/left_container"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("SegmentShape2D_vt46h")
+disabled = true
+
 [node name="right_container" type="StaticBody2D" parent="Node/World Boarder"]
 
 [node name="right" type="CollisionShape2D" parent="Node/World Boarder/right_container"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("SegmentShape2D_t4vmk")
+disabled = true
+
+[node name="right2" type="CollisionShape2D" parent="Node/World Boarder/right_container"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_t4vmk")
 disabled = true
@@ -632,12 +640,30 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_cynxq")
 disabled = true
 
+[node name="top2" type="CollisionShape2D" parent="Node/World Boarder/top_container"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("SegmentShape2D_cynxq")
+disabled = true
+
 [node name="bottom_container" type="StaticBody2D" parent="Node/World Boarder"]
 
 [node name="bottom" type="CollisionShape2D" parent="Node/World Boarder/bottom_container"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_3flpm")
 disabled = true
+
+[node name="bottom2" type="CollisionShape2D" parent="Node/World Boarder/bottom_container"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("SegmentShape2D_3flpm")
+disabled = true
+
+[node name="left_container2" type="StaticBody2D" parent="Node/World Boarder"]
+
+[node name="right_container2" type="StaticBody2D" parent="Node/World Boarder"]
+
+[node name="top_container2" type="StaticBody2D" parent="Node/World Boarder"]
+
+[node name="bottom_container2" type="StaticBody2D" parent="Node/World Boarder"]
 
 [node name="Trees" type="Node" parent="Node"]
 
@@ -693,40 +719,7 @@ scale = Vector2(5.56, 5.56)
 position = Vector2(141, 937)
 scale = Vector2(5.56, 5.56)
 
-[node name="World Boarder" type="Node" parent="Node"]
-
-[node name="left_container" type="StaticBody2D" parent="Node/World Boarder"]
-
-[node name="left" type="CollisionShape2D" parent="Node/World Boarder/left_container"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-shape = SubResource("SegmentShape2D_vt46h")
-disabled = true
-
-[node name="right_container" type="StaticBody2D" parent="Node/World Boarder"]
-
-[node name="right" type="CollisionShape2D" parent="Node/World Boarder/right_container"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-shape = SubResource("SegmentShape2D_t4vmk")
-disabled = true
-
-[node name="top_container" type="StaticBody2D" parent="Node/World Boarder"]
-
-[node name="top" type="CollisionShape2D" parent="Node/World Boarder/top_container"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-shape = SubResource("SegmentShape2D_cynxq")
-disabled = true
-
-[node name="bottom_container" type="StaticBody2D" parent="Node/World Boarder"]
-
-[node name="bottom" type="CollisionShape2D" parent="Node/World Boarder/bottom_container"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-shape = SubResource("SegmentShape2D_3flpm")
-disabled = true
-
-[node name="Node2D" parent="." instance=ExtResource("8_foorc")]
-position = Vector2(434, 821)
-spawn_enemy = ExtResource("9_hj2dw")
-wait_time = 1.0
+[node name="World Boarder2" type="Node" parent="Node"]
 
 [connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]

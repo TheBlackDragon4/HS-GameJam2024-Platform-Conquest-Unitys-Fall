@@ -9,7 +9,6 @@ size = Vector2(128, 128)
 [node name="enemy_Crawler" type="CharacterBody2D"]
 top_level = true
 script = ExtResource("1_ham0p")
-health = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_bhbi5")
