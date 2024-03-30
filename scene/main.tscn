@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=10 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://scene/main.gd" id="1_1573s"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_6x46e"]
 [ext_resource type="Texture2D" uid="uid://jln6cg53ypjq" path="res://assets/Terrain/Terrain (16x16).png" id="2_rkeko"]
-[ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/main_character.tscn" id="3_p3ibi"]
+[ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="3_p3ibi"]
 [ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="4_nxttg"]
-[ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/door.tscn" id="5_iv7fm"]
 [ext_resource type="Script" path="res://scene/TileMap.gd" id="4_odjjb"]
 [ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/door.tscn" id="5_iv7fm"]
 
