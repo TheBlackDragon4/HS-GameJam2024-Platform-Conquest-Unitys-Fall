@@ -532,7 +532,7 @@ script = ExtResource("4_fkvk7")
 [node name="Door" parent="Node" instance=ExtResource("5_oiodm")]
 position = Vector2(929, 752)
 scale = Vector2(2.56, 2.88)
-sceneChanger = "level/level1"
+sceneChanger = "worlds/level/scenes/level1"
 metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" parent="Node" instance=ExtResource("6_8hils")]
