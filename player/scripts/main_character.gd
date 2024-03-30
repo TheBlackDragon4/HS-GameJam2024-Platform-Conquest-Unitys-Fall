@@ -10,6 +10,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 const border_size = 300
 
+var isFreezed = false
+
 func _physics_process(delta):
 	if(Global.game_freeze):
 		return 
@@ -24,6 +26,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		main_character_sprite.animation = "jumping"
+
+	# If opened Inventory
+	if isFreezed:
+		move_and_slide()
+		return
 
 	# Handle jump.
 	if Input.is_action_pressed("jump") and is_on_floor():

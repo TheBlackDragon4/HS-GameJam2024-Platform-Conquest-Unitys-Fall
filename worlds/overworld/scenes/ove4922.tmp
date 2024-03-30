@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=11 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://worlds/overworld/scripts/overworld.gd" id="1_jomnk"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_ca51d"]
@@ -6,9 +6,8 @@
 [ext_resource type="Script" path="res://worlds/overworld/scripts/TileMap.gd" id="4_fkvk7"]
 [ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/scenes/door.tscn" id="5_oiodm"]
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="6_8hils"]
-[ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="7_ustfd"]
+[ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/scenes/inv_ui.tscn" id="7_ustfd"]
 [ext_resource type="PackedScene" uid="uid://cr0nbmg7auouw" path="res://Objects/Resources/ResourceNode_Tree.tscn" id="8_3f1h7"]
-[ext_resource type="PackedScene" uid="uid://p0w5efgmlvfm" path="res://Objects/Resources/easter_egg/ResourceNode.tscn" id="9_hjjsp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
 texture = ExtResource("3_ytwgx")
@@ -480,46 +479,33 @@ script = ExtResource("1_jomnk")
 [node name="Pause_Window" type="Window" parent="Pause_Menu"]
 title = "Pause"
 initial_position = 1
-size = Vector2i(200, 200)
+size = Vector2i(300, 300)
 visible = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Menu/Pause_Window"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -62.5
-offset_right = 48.0
-offset_bottom = 62.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button_resume" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+[node name="Button_resume" type="Button" parent="Pause_Menu/Pause_Window"]
 y_sort_enabled = true
-layout_mode = 2
+offset_right = 8.0
+offset_bottom = 8.0
 text = "Resume"
 flat = true
 
-[node name="Button_menu" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
-clip_contents = true
-layout_mode = 2
-text = "Main Menu"
-flat = true
-
-[node name="Button_quit" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
-visible = false
+[node name="Button_quit" type="Button" parent="Pause_Menu/Pause_Window"]
 y_sort_enabled = true
 clip_contents = true
-layout_mode = 2
+offset_top = 20.0
+offset_right = 42.0
+offset_bottom = 51.0
 size_flags_vertical = 0
 text = "Quit"
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="Pause_Menu/Pause_Window/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 60
+[node name="Button_menu" type="Button" parent="Pause_Menu/Pause_Window"]
+clip_contents = true
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 71.0
+text = "Main Menu"
+flat = true
 
 [node name="Blur" type="ColorRect" parent="Pause_Menu"]
 visible = false
@@ -552,7 +538,6 @@ layer_0/tile_data = PackedInt32Array(393222, 524288, 0, 1048576, 458752, 0, 1048
 script = ExtResource("4_fkvk7")
 
 [node name="Door" parent="Node" instance=ExtResource("5_oiodm")]
-texture_filter = 1
 position = Vector2(928, 711)
 scale = Vector2(3.35999, 3.08)
 sceneChanger = "worlds/level/scenes/level1"
@@ -575,10 +560,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(323, 939)
 scale = Vector2(5.56, 5.56)
 
-[node name="easter_Egg" parent="Node" instance=ExtResource("9_hjjsp")]
-position = Vector2(-490, 982)
-scale = Vector2(4, 4)
-
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_menu" to="." method="_on_button_menu_pressed"]
