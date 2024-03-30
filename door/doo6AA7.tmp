@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3wygrjersm2l"]
+
+[ext_resource type="Texture2D" uid="uid://banxniyd1ht0l" path="res://assets/Door/Idle.png" id="1_rrnh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no641"]
+size = Vector2(20, 56)
+
+[node name="Door" type="Node2D"]
+light_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rrnh5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_no641")
