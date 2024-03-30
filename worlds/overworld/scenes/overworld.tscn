@@ -509,6 +509,7 @@ text = "Main Menu"
 flat = true
 
 [node name="Button_quit" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+visible = false
 y_sort_enabled = true
 clip_contents = true
 layout_mode = 2

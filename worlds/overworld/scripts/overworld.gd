@@ -9,6 +9,9 @@ extends Node2D
 
 @onready var camera = $Node/CharacterBody2D/Camera2D
 
+@onready var menu_button1 = $Pause_Menu/Pause_Window/VBoxContainer/Button_resume
+@onready var menu_button2 = $Pause_Menu/Pause_Window/VBoxContainer/Button_menu
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +36,14 @@ func _process(_delta):
 		#blur disabled becaused its static, but the camera moves
 		#pause_window_blur.visible = !pause_window_blur.visible
 		Global.game_freeze = !Global.game_freeze
-		
+		#if Input.is_action_just_pressed("menu_third"):
+			#$Pause_Menu/Pause_Window/VBoxContainer/Button_quit.emit_signal("pressed")
+	
+	if Input.is_action_just_pressed("menu_first"):
+		menu_button1.emit_signal("pressed")
+	if Input.is_action_just_pressed("menu_second"):
+		menu_button2.emit_signal("pressed")
+	
 
 
 func _on_button_resume_pressed():
@@ -50,7 +60,7 @@ func _on_button_quit_pressed():
 func _on_button_menu_pressed():
 	pause_window.visible = false
 	Global.game_freeze = false
-	get_tree().change_scene_to_file("res://menu/scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://menu/main_menu/scenes/main_menu.tscn")
 
 
 
