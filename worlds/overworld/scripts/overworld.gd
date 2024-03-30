@@ -4,22 +4,57 @@ extends Node2D
 @onready var pause_window_blur = $Pause_Menu/Blur
 
 @onready var player = $Node/CharacterBody2D/Sprite2D
-
 @onready var tile_map = $Node/TileMap
-
 @onready var camera = $Node/CharacterBody2D/Camera2D
+
+@onready var border_left = $"Node/World Boarder/left_container/left"
+@onready var border_right = $"Node/World Boarder/right_container/right"
+@onready var border_top = $"Node/World Boarder/top_container/top"
+@onready var border_bottom = $"Node/World Boarder/bottom_container/bottom"
+
+const border_height_offset = 600
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	var world_rect = tile_map.get_used_rect()
+	var tile_to_pixel_factor = tile_map.tile_set.tile_size.x * tile_map.scale.x
+	
+	# World border
+	# left
+	border_left.disabled = false
+	border_left.shape.a.x = world_rect.position.x * tile_to_pixel_factor # Links oben
+	border_left.shape.a.y = world_rect.position.y * tile_to_pixel_factor - border_height_offset
+	border_left.shape.b.x = world_rect.position.x * tile_to_pixel_factor # Links unten
+	border_left.shape.b.y = world_rect.end.y * tile_to_pixel_factor
+	# right
+	border_right.disabled = false
+	border_right.shape.a.x = world_rect.end.x * tile_to_pixel_factor # Rechts oben
+	border_right.shape.a.y = world_rect.position.y * tile_to_pixel_factor - border_height_offset
+	border_right.shape.b.x = world_rect.end.x * tile_to_pixel_factor # Rechts unten
+	border_right.shape.b.y = world_rect.end.y * tile_to_pixel_factor
+	# top
+	border_top.disabled = false
+	border_top.shape.a.x = world_rect.position.x * tile_to_pixel_factor # Links oben
+	border_top.shape.a.y = world_rect.position.y * tile_to_pixel_factor - border_height_offset
+	border_top.shape.b.x = world_rect.end.x * tile_to_pixel_factor # Rechts oben
+	border_top.shape.b.y = world_rect.position.y * tile_to_pixel_factor - border_height_offset
+	# bottom
+	border_bottom.disabled = false
+	border_bottom.shape.a.x = world_rect.position.x * tile_to_pixel_factor # Links unten
+	border_bottom.shape.a.y = world_rect.end.y * tile_to_pixel_factor
+	border_bottom.shape.b.x = world_rect.end.x * tile_to_pixel_factor # Rechts unten
+	border_bottom.shape.b.y = world_rect.end.y * tile_to_pixel_factor
+	
 	# So that the camera can't move out of screen in the bottom
 	camera.limit_bottom = get_viewport().get_visible_rect().size.y
-	
-	camera.limit_left = tile_map.get_used_rect().position.x * tile_map.tile_set.tile_size.x * tile_map.scale.x
-	camera.limit_right = tile_map.get_used_rect().end.x * tile_map.tile_set.tile_size.x * tile_map.scale.x
+	camera.limit_left = world_rect.position.x * tile_to_pixel_factor
+	camera.limit_right = world_rect.end.x * tile_to_pixel_factor
+	camera.limit_top = world_rect.position.y * tile_to_pixel_factor - border_height_offset
 
-	#print(map_to_world(get_viewport().get_visible_rect()))
+	print(world_rect)
+	print(border_left.shape.a.x)
 	#print(tile_map.get_used_rect().end)
 	#print(tile_map.tile_set.tile_size.x)
 
