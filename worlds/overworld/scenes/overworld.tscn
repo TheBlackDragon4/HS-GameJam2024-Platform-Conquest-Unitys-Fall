@@ -530,8 +530,8 @@ layer_0/tile_data = PackedInt32Array(393222, 524288, 0, 1048576, 458752, 0, 1048
 script = ExtResource("4_fkvk7")
 
 [node name="Door" parent="Node" instance=ExtResource("5_oiodm")]
-position = Vector2(929, 752)
-scale = Vector2(2.56, 2.88)
+position = Vector2(928, 711)
+scale = Vector2(3.35999, 3.08)
 sceneChanger = "worlds/level/scenes/level1"
 metadata/_edit_lock_ = true
 
