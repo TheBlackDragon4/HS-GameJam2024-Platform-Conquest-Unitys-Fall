@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=16 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://worlds/overworld/scripts/overworld.gd" id="1_jomnk"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_ca51d"]
@@ -591,9 +591,6 @@ scale = Vector2(5.56, 5.56)
 position = Vector2(-490, 982)
 scale = Vector2(4, 4)
 
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
 [node name="World Boarder" type="Node" parent="Node"]
 
 [node name="left_container" type="StaticBody2D" parent="Node/World Boarder"]
@@ -624,6 +621,6 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_3flpm")
 disabled = true
 
-[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
