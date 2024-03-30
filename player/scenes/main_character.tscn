@@ -1,50 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=21 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
-[ext_resource type="Texture2D" uid="uid://cwgfviktcgpd5" path="res://assets/Main Characters/Pink Man/Idle (32x32).png" id="2_07yvv"]
+[ext_resource type="Texture2D" uid="uid://cc7xgmat84gd0" path="res://player/resources/skin/player(128x128).png" id="2_cj4tt"]
 [ext_resource type="Texture2D" uid="uid://vwni1lv2wvn" path="res://assets/Main Characters/Pink Man/Jump (32x32).png" id="3_32tby"]
 [ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
 [ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="5_t2qad"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qq0x8"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h1cu3"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h5crv"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihie6"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mntqt"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_maa1k"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ins1p"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0mmss"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nphvw"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tkmf7"]
-atlas = ExtResource("2_07yvv")
-region = Rect2(288, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3pn5"]
 atlas = ExtResource("3_32tby")
@@ -102,34 +62,7 @@ region = Rect2(352, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qq0x8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h1cu3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h5crv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ihie6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mntqt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_maa1k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ins1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0mmss")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nphvw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tkmf7")
+"texture": ExtResource("2_cj4tt")
 }],
 "loop": true,
 "name": &"default",
@@ -186,7 +119,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhlol"]
-size = Vector2(103, 133)
+size = Vector2(60.5, 120)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
@@ -197,14 +130,14 @@ script = ExtResource("1_b3sao")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(412, 964)
-scale = Vector2(4.90909, 4.90909)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7yfj3")
 autoplay = "default"
-frame_progress = 0.71639
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
-position = Vector2(414.5, 976.5)
+position = Vector2(407.5, 970)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_uhlol")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=12 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://worlds/overworld/scripts/overworld.gd" id="1_jomnk"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_ca51d"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="6_8hils"]
 [ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="7_ustfd"]
 [ext_resource type="PackedScene" uid="uid://cr0nbmg7auouw" path="res://Objects/Resources/ResourceNode_Tree.tscn" id="8_3f1h7"]
+[ext_resource type="PackedScene" uid="uid://p0w5efgmlvfm" path="res://Objects/Resources/easter_egg/ResourceNode.tscn" id="9_hjjsp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
 texture = ExtResource("3_ytwgx")
@@ -560,6 +561,10 @@ metadata/_edit_use_anchors_ = true
 [node name="resource_tree" parent="Node" instance=ExtResource("8_3f1h7")]
 position = Vector2(323, 939)
 scale = Vector2(5.56, 5.56)
+
+[node name="easter_Egg" parent="Node" instance=ExtResource("9_hjjsp")]
+position = Vector2(-490, 982)
+scale = Vector2(4, 4)
 
 [connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
