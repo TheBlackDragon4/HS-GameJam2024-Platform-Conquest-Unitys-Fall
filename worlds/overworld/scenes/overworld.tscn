@@ -645,6 +645,7 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_3flpm")
 disabled = true
 
+[connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
