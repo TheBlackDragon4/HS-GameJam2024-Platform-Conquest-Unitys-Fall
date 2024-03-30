@@ -54,28 +54,29 @@ func _input(_event):
 			action = "interact"
 		
 		selectedSlot.get_node("Sprite2D").animation = "default"
-		
+		print("aatest",currentPos)
 		match action:
 			"left":
-				if currentPos > 1:
+				if currentPos > 0:
 					currentPos = currentPos-1
 				else:
-					currentPos = currentPos-1+12
+					currentPos = currentPos+11
 			"right":
 				if currentPos < 9:
 					currentPos = currentPos+1
 				else:
-					currentPos = currentPos+1-12
+					currentPos = currentPos-11
 			"jump":
-				if currentPos > 4:
+				if currentPos > 3:
 					currentPos = currentPos-4
 				else:
-					currentPos = currentPos+12-4
+					currentPos = currentPos+8
 			"interact":
-				if currentPos < 6:
-					currentPos = currentPos-12+4
-				else:
+				print("test",currentPos)
+				if currentPos < 8:
 					currentPos = currentPos+4
+				else:
+					currentPos = currentPos-8
 					
 		selectedSlot = slotArray[currentPos]
 		selectedSlot.get_node("Sprite2D").animation = "selected"
