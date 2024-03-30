@@ -9,7 +9,7 @@ func _onready():
 	interact_label.visible = false
 	
 
-func _process(delta):
+func _process(_delta):
 	if !get_parent().isChopped:
 		for body in get_overlapping_bodies():
 			if body.name == "CharacterBody2D":

@@ -509,7 +509,6 @@ flat = true
 
 [node name="Blur" type="ColorRect" parent="Pause_Menu"]
 visible = false
-z_index = 1000
 offset_right = 1925.0
 offset_bottom = 1093.0
 color = Color(0.439216, 0.439216, 0.439216, 0.784314)
@@ -551,7 +550,6 @@ collision_mask = 3
 metadata/_edit_lock_ = true
 
 [node name="Inv_UI2" parent="Node/CharacterBody2D" instance=ExtResource("7_ustfd")]
-z_index = 5
 offset_left = 290.0
 offset_top = 704.0
 offset_right = 376.0
