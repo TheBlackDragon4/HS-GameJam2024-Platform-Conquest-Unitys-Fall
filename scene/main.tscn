@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=9 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://scene/main.gd" id="1_1573s"]
 [ext_resource type="Texture2D" uid="uid://c6f6ebkcd4ers" path="res://assets/Background/Pink.png" id="1_c0wr7"]
@@ -527,6 +527,7 @@ metadata/_edit_lock_ = true
 [node name="Door" parent="Node" instance=ExtResource("5_iv7fm")]
 position = Vector2(929, 752)
 scale = Vector2(2.56, 2.88)
+sceneChanger = "level/level1"
 metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" parent="Node" instance=ExtResource("3_p3ibi")]
