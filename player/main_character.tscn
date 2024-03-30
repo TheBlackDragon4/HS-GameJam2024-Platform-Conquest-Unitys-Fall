@@ -201,3 +201,8 @@ frame_progress = 0.71639
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(414.5, 976.5)
 shape = SubResource("RectangleShape2D_uhlol")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(411, 972)
+limit_smoothed = true
+editor_draw_limits = true

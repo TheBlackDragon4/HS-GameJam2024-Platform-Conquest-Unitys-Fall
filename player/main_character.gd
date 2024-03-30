@@ -4,14 +4,17 @@ extends CharacterBody2D
 const SPEED = 500.0
 const JUMP_VELOCITY = -869.0
 @onready var main_character_sprite = $Sprite2D
+@onready var camera = $"Camera2D"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+const border_size = 300
 
 func _physics_process(delta):
 	if(Global.game_freeze):
 		return 
+		
 	# Animations
 	if (velocity.x > 1 || velocity.x < -1):
 		main_character_sprite.animation = "running"
@@ -32,8 +35,16 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		#if main_character_sprite.global_position.x < border_size:
+		#	camera.enabled = true
+		#else:
+		#	camera.enabled = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, 40)
+		#if main_character_sprite.global_position.y > get_viewport().get_visible_rect().size.x - border_size:
+		#	camera.enabled = true
+		#else:
+		#	camera.enabled = false
 
 
 
