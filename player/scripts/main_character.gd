@@ -5,6 +5,8 @@ const JUMP_VELOCITY = -869.0
 @onready var main_character_sprite = $Sprite2D
 @onready var camera = $"Camera2D"
 
+@onready var weapon_sprite: Sprite2D = null
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -64,3 +66,8 @@ func _physics_process(delta):
 
 #func _on_tree_body_entered(body):
 	#$resource_tree.interact()
+
+func _process(_delta):
+	if Global.weapon:
+		var EquipSprite = $HandEquip/EquipSprite
+		EquipSprite.texture = Global.weapon.texture

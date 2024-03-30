@@ -8,4 +8,3 @@ func update(item: InvItem):
 	else:
 		item_visual.visible = true
 		item_visual.texture = item.texture
-

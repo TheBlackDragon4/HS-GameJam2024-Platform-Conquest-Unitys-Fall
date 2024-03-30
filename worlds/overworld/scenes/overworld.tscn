@@ -618,58 +618,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "Cancel"
 
-[node name="resource_tree" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(323, 939)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree2" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-735, 780)
-scale = Vector2(7.10611, 7.10611)
-
-[node name="resource_tree3" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-70, 936)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree4" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(1156, 679)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree5" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(1720, 426)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree6" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-232, 933)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree7" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-938, 737)
-scale = Vector2(6.01286, 6.01286)
-
-[node name="resource_tree8" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-439, 548)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree9" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(588, 869)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree10" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-236, 42)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree11" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(1463, 901)
-scale = Vector2(7.66392, 7.64335)
-
-[node name="resource_tree12" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(-670, 174)
-scale = Vector2(5.56, 5.56)
-
-[node name="resource_tree13" parent="Node" instance=ExtResource("8_3f1h7")]
-position = Vector2(141, 937)
-scale = Vector2(5.56, 5.56)
-
 [node name="World Boarder" type="Node" parent="Node"]
 
 [node name="left_container" type="StaticBody2D" parent="Node/World Boarder"]
@@ -699,6 +647,60 @@ disabled = true
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_3flpm")
 disabled = true
+
+[node name="Trees" type="Node" parent="Node"]
+
+[node name="resource_tree" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(323, 939)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree2" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-735, 780)
+scale = Vector2(7.10611, 7.10611)
+
+[node name="resource_tree3" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-70, 936)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree4" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(1156, 679)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree5" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(1720, 426)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree6" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-232, 933)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree7" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-938, 737)
+scale = Vector2(6.01286, 6.01286)
+
+[node name="resource_tree8" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-439, 548)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree9" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(588, 869)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree10" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-236, 42)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree11" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(1463, 901)
+scale = Vector2(7.66392, 7.64335)
+
+[node name="resource_tree12" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(-670, 174)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree13" parent="Node/Trees" instance=ExtResource("8_3f1h7")]
+position = Vector2(141, 937)
+scale = Vector2(5.56, 5.56)
 
 [connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
