@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=16 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://worlds/overworld/scripts/overworld.gd" id="1_jomnk"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_ca51d"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="6_8hils"]
 [ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="7_ustfd"]
 [ext_resource type="PackedScene" uid="uid://cr0nbmg7auouw" path="res://Objects/Resources/ResourceNode_Tree.tscn" id="8_3f1h7"]
+[ext_resource type="PackedScene" uid="uid://cjo3xf30agtbl" path="res://enemys/scenes/enemy_spwner.tscn" id="8_foorc"]
+[ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/crawler.tscn" id="9_hj2dw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
 texture = ExtResource("3_ytwgx")
@@ -691,6 +693,11 @@ disabled = true
 position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("SegmentShape2D_3flpm")
 disabled = true
+
+[node name="Node2D" parent="." instance=ExtResource("8_foorc")]
+position = Vector2(434, 821)
+spawn_enemy = ExtResource("9_hj2dw")
+wait_time = 1.0
 
 [connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
