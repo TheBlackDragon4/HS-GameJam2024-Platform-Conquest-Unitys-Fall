@@ -110,4 +110,7 @@ func open():
 
 
 func _on_delete_pressed():
-	pass # Replace with function body.
+	inv.items[currentPos] = null
+	update_slots()
+
+
