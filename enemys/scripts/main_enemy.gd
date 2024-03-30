@@ -1,11 +1,15 @@
-extends Node
+extends CharacterBody2D
 
+var speed = 100
+const GRAVITY = 32
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _physics_process(delta):	
+	move()
 
+func move():
+	velocity.y += GRAVITY
+	if (velocity.x == 0):
+		speed *= -1
+		velocity.x = speed
+	move_and_slide()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
