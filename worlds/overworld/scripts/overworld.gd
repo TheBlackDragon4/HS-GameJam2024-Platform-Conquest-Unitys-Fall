@@ -7,8 +7,9 @@ extends Node2D
 @onready var tile_map = $Node/TileMap
 @onready var camera = $Node/CharacterBody2D/Camera2D
 
-@onready var menu_button1 = $Pause_Menu/Pause_Window/VBoxContainer/Button_resume
-@onready var menu_button2 = $Pause_Menu/Pause_Window/VBoxContainer/Button_menu
+@onready var pause_menu_window = $Pause_Menu/Pause_Window
+@onready var pause_menu_button1 = $Pause_Menu/Pause_Window/VBoxContainer/Button_resume
+@onready var pause_menu_button2 = $Pause_Menu/Pause_Window/VBoxContainer/Button_menu
 @onready var border_left = $"Node/World Boarder/left_container/left"
 @onready var border_right = $"Node/World Boarder/right_container/right"
 @onready var border_top = $"Node/World Boarder/top_container/top"
@@ -64,7 +65,27 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
+	
+	if Input.is_action_just_pressed("menu_first") and pause_menu_window.visible:
+		pause_menu_button1.emit_signal("pressed")
+	if Input.is_action_just_pressed("menu_second")and pause_menu_window.visible:
+		pause_menu_button2.emit_signal("pressed")
+		
+		
+	#if Input.is_action_just_pressed("pause_game"):
+		#pause_window.visible = !pause_window.visible
+		##blur disabled becaused its static, but the camera moves
+		##pause_window_blur.visible = !pause_window_blur.visible
+		#Global.game_freeze = !Global.game_freeze
+		##if Input.is_action_just_pressed("menu_third"):
+			##$Pause_Menu/Pause_Window/VBoxContainer/Button_quit.emit_signal("pressed")
+		#
+	#if Input.is_action_just_pressed("menu_first") and pause_menu_window.visible:
+		#pause_menu_button1.emit_signal("pressed")
+	#if Input.is_action_just_pressed("menu_second")and pause_menu_window.visible:
+		#pause_menu_button2.emit_signal("pressed")
+	
+func _input(_event):
 	if Input.is_action_just_pressed("pause_game"):
 		pause_window.visible = !pause_window.visible
 		#blur disabled becaused its static, but the camera moves
@@ -72,13 +93,8 @@ func _process(_delta):
 		Global.game_freeze = !Global.game_freeze
 		#if Input.is_action_just_pressed("menu_third"):
 			#$Pause_Menu/Pause_Window/VBoxContainer/Button_quit.emit_signal("pressed")
+		
 	
-	if Input.is_action_just_pressed("menu_first"):
-		menu_button1.emit_signal("pressed")
-	if Input.is_action_just_pressed("menu_second"):
-		menu_button2.emit_signal("pressed")
-	
-
 
 func _on_button_resume_pressed():
 	pause_window.visible = !pause_window.visible

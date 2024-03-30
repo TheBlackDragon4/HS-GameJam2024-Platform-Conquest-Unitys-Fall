@@ -9,6 +9,9 @@ var inv_open = false
 var slotArray = []
 var currentPos = 0
 
+@onready var dialog = $DeleteDialog
+@onready var deleteButton = $DeleteDialog/HBoxContainer/Delete
+@onready var cancelButton = $DeleteDialog/HBoxContainer/Cancel
 
 func _ready():
 	update_slots()
@@ -19,6 +22,17 @@ func _ready():
 func update_slots():
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
+
+func _process(delta):
+	
+	if Input.is_action_just_pressed("menu_first") and dialog.visible:
+				deleteButton.emit_signal("pressed")
+				dialog.visible = false
+				print("first: ",dialog.visible)
+	if Input.is_action_just_pressed("menu_second") and dialog.visible:
+			cancelButton.emit_signal("pressed")
+			dialog.visible = false
+			print("second: ",dialog.visible)
 
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
@@ -74,6 +88,11 @@ func _input(_event):
 				currentPos = currentPos-12+4
 				selectedSlot = slotArray[currentPos]
 				selectedSlot.get_node("Sprite2D").animation = "selected"
+		
+		if Input.is_action_just_pressed("delete_item"):
+			if !inv.items[currentPos] == null:
+				dialog.visible = true
+		
 				
 
 
@@ -88,3 +107,10 @@ func open():
 	visible = true
 	#selectedSlot.get_node("Sprite2D").set_texture(preload(("res://icons/dummy/Selected_Inventory_Tile.png")))
 	selectedSlot.get_node("Sprite2D").animation = "selected"
+
+
+func _on_delete_pressed():
+	inv.items[currentPos] = null
+	update_slots()
+
+

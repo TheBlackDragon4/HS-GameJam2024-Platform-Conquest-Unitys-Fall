@@ -583,6 +583,35 @@ offset_right = 376.0
 offset_bottom = 770.0
 metadata/_edit_use_anchors_ = true
 
+[node name="DeleteDialog" type="Window" parent="Node/CharacterBody2D/Inv_UI"]
+initial_position = 1
+size = Vector2i(150, 80)
+visible = false
+unresizable = true
+borderless = true
+always_on_top = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Node/CharacterBody2D/Inv_UI/DeleteDialog"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -20.0
+offset_right = 61.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Delete" type="Button" parent="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer"]
+layout_mode = 2
+text = "Delete"
+
+[node name="Cancel" type="Button" parent="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer"]
+layout_mode = 2
+text = "Cancel"
+
 [node name="resource_tree" parent="Node" instance=ExtResource("8_3f1h7")]
 position = Vector2(323, 939)
 scale = Vector2(5.56, 5.56)
@@ -624,3 +653,4 @@ disabled = true
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer/Delete" to="Node/CharacterBody2D/Inv_UI" method="_on_delete_pressed"]
