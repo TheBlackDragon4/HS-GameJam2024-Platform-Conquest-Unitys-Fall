@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://worlds/overworld/scripts/TileMap.gd" id="4_fkvk7"]
 [ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/scenes/door.tscn" id="5_oiodm"]
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="6_8hils"]
-[ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="7_ustfd"]
+[ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/scenes/inv_ui.tscn" id="7_ustfd"]
 [ext_resource type="PackedScene" uid="uid://cr0nbmg7auouw" path="res://Objects/Resources/ResourceNode_Tree.tscn" id="8_3f1h7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
