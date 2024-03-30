@@ -107,3 +107,7 @@ func open():
 	visible = true
 	#selectedSlot.get_node("Sprite2D").set_texture(preload(("res://icons/dummy/Selected_Inventory_Tile.png")))
 	selectedSlot.get_node("Sprite2D").animation = "selected"
+
+
+func _on_delete_pressed():
+	pass # Replace with function body.
