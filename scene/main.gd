@@ -10,7 +10,6 @@ extends Node2D
 @onready var camera = $Node/CharacterBody2D/Camera2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
