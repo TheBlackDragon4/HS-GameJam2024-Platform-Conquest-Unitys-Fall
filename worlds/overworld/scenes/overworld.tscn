@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpa5og3fnpu7f"]
+[gd_scene load_steps=15 format=3 uid="uid://bpa5og3fnpu7f"]
 
 [ext_resource type="Script" path="res://worlds/overworld/scripts/overworld.gd" id="1_jomnk"]
 [ext_resource type="Texture2D" uid="uid://dp6pbpqvu54dj" path="res://assets/Background/Blue.png" id="2_ca51d"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="6_8hils"]
 [ext_resource type="PackedScene" uid="uid://8152nqo5ofbu" path="res://Inventory/inv_ui.tscn" id="7_ustfd"]
 [ext_resource type="PackedScene" uid="uid://cr0nbmg7auouw" path="res://Objects/Resources/ResourceNode_Tree.tscn" id="8_3f1h7"]
-[ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/enemy1.tscn" id="9_dd1j5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gshfq"]
 texture = ExtResource("3_ytwgx")
@@ -553,7 +552,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ca51d")
 stretch_mode = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="Node"]
 texture_filter = 1
@@ -577,16 +575,14 @@ collision_mask = 3
 metadata/_edit_lock_ = true
 
 [node name="Inv_UI" parent="Node/CharacterBody2D" instance=ExtResource("7_ustfd")]
-offset_left = 290.0
-offset_top = 704.0
-offset_right = 376.0
-offset_bottom = 770.0
-metadata/_edit_use_anchors_ = true
+offset_left = 280.0
+offset_top = 638.0
+offset_right = 366.0
+offset_bottom = 704.0
 
 [node name="DeleteDialog" type="Window" parent="Node/CharacterBody2D/Inv_UI"]
 initial_position = 1
-size = Vector2i(150, 80)
-visible = false
+size = Vector2i(190, 50)
 unresizable = true
 borderless = true
 always_on_top = true
@@ -604,21 +600,74 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Equip" type="Button" parent="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Equip"
+
 [node name="Delete" type="Button" parent="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 text = "Delete"
 
 [node name="Cancel" type="Button" parent="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 text = "Cancel"
 
 [node name="resource_tree" parent="Node" instance=ExtResource("8_3f1h7")]
 position = Vector2(323, 939)
 scale = Vector2(5.56, 5.56)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("9_dd1j5")]
-top_level = true
-position = Vector2(628, 910)
+[node name="resource_tree2" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-735, 780)
+scale = Vector2(7.10611, 7.10611)
+
+[node name="resource_tree3" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-70, 936)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree4" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(1156, 679)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree5" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(1720, 426)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree6" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-232, 933)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree7" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-938, 737)
+scale = Vector2(6.01286, 6.01286)
+
+[node name="resource_tree8" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-439, 548)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree9" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(588, 869)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree10" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-236, 42)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree11" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(1463, 901)
+scale = Vector2(7.66392, 7.64335)
+
+[node name="resource_tree12" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(-670, 174)
+scale = Vector2(5.56, 5.56)
+
+[node name="resource_tree13" parent="Node" instance=ExtResource("8_3f1h7")]
+position = Vector2(141, 937)
+scale = Vector2(5.56, 5.56)
 
 [node name="World Boarder" type="Node" parent="Node"]
 
@@ -653,4 +702,5 @@ disabled = true
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer/Equip" to="Node/CharacterBody2D/Inv_UI" method="_on_equip_pressed"]
 [connection signal="pressed" from="Node/CharacterBody2D/Inv_UI/DeleteDialog/HBoxContainer/Delete" to="Node/CharacterBody2D/Inv_UI" method="_on_delete_pressed"]

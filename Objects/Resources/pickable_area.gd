@@ -22,8 +22,8 @@ func _input(event):
 		if event.is_action_pressed("interact"):
 			for body in get_overlapping_bodies():
 				if body.name == "CharacterBody2D":
-					for array_item_index in range(inv.items.size()):
-						print(array_item_index)
+					for array_item_index in range(1, inv.items.size()):
+						#print(array_item_index)
 						if inv.items[array_item_index] == null: 
 							inv.items[array_item_index] = get_parent().item
 							get_parent().chop_tree()
