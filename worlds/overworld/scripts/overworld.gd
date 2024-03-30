@@ -30,14 +30,16 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("pause_game"):
 		pause_window.visible = !pause_window.visible
-		pause_window_blur.visible = !pause_window_blur.visible
+		#blur disabled becaused its static, but the camera moves
+		#pause_window_blur.visible = !pause_window_blur.visible
 		Global.game_freeze = !Global.game_freeze
 		
 
 
 func _on_button_resume_pressed():
 	pause_window.visible = !pause_window.visible
-	pause_window_blur.visible = !pause_window_blur.visible
+	#blur disabled becaused its static, but the camera moves
+	#pause_window_blur.visible = !pause_window_blur.visible
 	Global.game_freeze = !Global.game_freeze
 	
 
