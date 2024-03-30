@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var pause_window = $Pause_Menu/Pause_Window
-@onready var pause_window_blur = $Pause_Menu/Blur
 
 @onready var player = $Node/CharacterBody2D/Sprite2D
 @onready var tile_map = $Node/TileMap
@@ -56,10 +55,6 @@ func _ready():
 	camera.limit_right = world_rect.end.x * tile_to_pixel_factor
 	camera.limit_top = world_rect.position.y * tile_to_pixel_factor - border_height_offset
 
-	print(world_rect)
-	print(border_left.shape.a.x)
-	#print(tile_map.get_used_rect().end)
-	#print(tile_map.tile_set.tile_size.x)
 
 
 
@@ -72,34 +67,17 @@ func _process(_delta):
 		pause_menu_button2.emit_signal("pressed")
 		
 		
-	#if Input.is_action_just_pressed("pause_game"):
-		#pause_window.visible = !pause_window.visible
-		##blur disabled becaused its static, but the camera moves
-		##pause_window_blur.visible = !pause_window_blur.visible
-		#Global.game_freeze = !Global.game_freeze
-		##if Input.is_action_just_pressed("menu_third"):
-			##$Pause_Menu/Pause_Window/VBoxContainer/Button_quit.emit_signal("pressed")
-		#
-	#if Input.is_action_just_pressed("menu_first") and pause_menu_window.visible:
-		#pause_menu_button1.emit_signal("pressed")
-	#if Input.is_action_just_pressed("menu_second")and pause_menu_window.visible:
-		#pause_menu_button2.emit_signal("pressed")
+
 	
 func _input(_event):
 	if Input.is_action_just_pressed("pause_game"):
 		pause_window.visible = !pause_window.visible
-		#blur disabled becaused its static, but the camera moves
-		#pause_window_blur.visible = !pause_window_blur.visible
 		Global.game_freeze = !Global.game_freeze
-		#if Input.is_action_just_pressed("menu_third"):
-			#$Pause_Menu/Pause_Window/VBoxContainer/Button_quit.emit_signal("pressed")
 		
 	
 
 func _on_button_resume_pressed():
 	pause_window.visible = !pause_window.visible
-	#blur disabled becaused its static, but the camera moves
-	#pause_window_blur.visible = !pause_window_blur.visible
 	Global.game_freeze = !Global.game_freeze
 	
 
