@@ -43,24 +43,12 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
-		#if main_character_sprite.global_position.x < border_size:
-		#	camera.enabled = true
-		#else:
-		#	camera.enabled = false
+
 	else:
 		velocity.x = move_toward(velocity.x, 0, 40)
-		#if main_character_sprite.global_position.y > get_viewport().get_visible_rect().size.x - border_size:
-		#	camera.enabled = true
-		#else:
-		#	camera.enabled = false
-
-
 
 	if(!Global.game_freeze):
 		move_and_slide()
 		var isLeft = velocity.x < 0
 		main_character_sprite.flip_h = isLeft
 
-
-#func _on_tree_body_entered(body):
-	#$resource_tree.interact()
