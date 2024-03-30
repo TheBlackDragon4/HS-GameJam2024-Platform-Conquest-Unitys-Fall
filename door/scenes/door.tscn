@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bafqdsep4y8a8"]
 
-[ext_resource type="Script" path="res://door/door.gd" id="1_fab8i"]
+[ext_resource type="Script" path="res://door/scripts/door.gd" id="1_fab8i"]
 [ext_resource type="Texture2D" uid="uid://banxniyd1ht0l" path="res://assets/Door/Idle.png" id="1_t506b"]
 
 [sub_resource type="Animation" id="Animation_3b47n"]
