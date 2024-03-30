@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvyjpx13fb6sk"]
+
+[ext_resource type="Script" path="res://menu/scripts/main_menu.gd" id="1_nlcvm"]
+[ext_resource type="Texture2D" uid="uid://ctrd8wwpv436j" path="res://assets/Menu/dummy/label_new_game.png" id="1_p0mp4"]
+[ext_resource type="Texture2D" uid="uid://ddatvvtm51u5n" path="res://assets/Menu/dummy/characters.png" id="1_tev30"]
+[ext_resource type="Texture2D" uid="uid://c57qudk04anqj" path="res://assets/Menu/dummy/label_options.png" id="2_0ayku"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_nlcvm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 1925.0
+offset_bottom = 1089.0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="New_Game_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_p0mp4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="Quit_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_0ayku")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_tev30")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/New_Game_Button" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

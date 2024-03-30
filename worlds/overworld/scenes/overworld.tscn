@@ -498,6 +498,14 @@ size_flags_vertical = 0
 text = "Quit"
 flat = true
 
+[node name="Button_menu" type="Button" parent="Pause_Menu/Pause_Window"]
+clip_contents = true
+offset_top = 40.0
+offset_right = 96.0
+offset_bottom = 71.0
+text = "Main Menu"
+flat = true
+
 [node name="Blur" type="ColorRect" parent="Pause_Menu"]
 visible = false
 z_index = 1000
@@ -551,3 +559,4 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Pause_Menu/Pause_Window/Button_resume" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/Button_quit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/Button_menu" to="." method="_on_button_menu_pressed"]
