@@ -5,7 +5,6 @@ extends Control
 
 var inv_open = false
 @onready var selectedSlot = $NinePatchRect/GridContainer/Inv_UI_Slot1
-#@onready var selectedSlotSprite = $NinePatchRect/GridContainer/Inv_UI_Slot1/Sprite2D
 var slotArray = []
 var currentPos = 0
 
@@ -44,57 +43,46 @@ func _input(_event):
 			update_slots()
 			open()
 	if inv_open:
+		var action = ""
 		if Input.is_action_just_pressed("left"):
-			if !currentPos < 1:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos-1
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
-			else:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos-1+12
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"				
+			action = "left"
 		if Input.is_action_just_pressed("right"):
-			if !currentPos > 10:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos+1
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
-			else:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos+1-12
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
+			action = "right"
 		if Input.is_action_just_pressed("jump"):
-			if !currentPos < 4:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos-4
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
-			else:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos+12-4
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
+			action = "jump"
 		if Input.is_action_just_pressed("interact"):
-			if !currentPos > 7:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos+4
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
-			else:
-				selectedSlot.get_node("Sprite2D").animation = "default"
-				currentPos = currentPos-12+4
-				selectedSlot = slotArray[currentPos]
-				selectedSlot.get_node("Sprite2D").animation = "selected"
+			action = "interact"
+		
+		selectedSlot.get_node("Sprite2D").animation = "default"
+		
+		match action:
+			"left":
+				if currentPos > 1:
+					currentPos = currentPos-1
+				else:
+					currentPos = currentPos-1+12
+			"right":
+				if currentPos < 9:
+					currentPos = currentPos+1
+				else:
+					currentPos = currentPos+1-12
+			"jump":
+				if currentPos > 4:
+					currentPos = currentPos-4
+				else:
+					currentPos = currentPos+12-4
+			"interact":
+				if currentPos < 6:
+					currentPos = currentPos+4
+				else:
+					currentPos = currentPos-12+4
+					
+		selectedSlot = slotArray[currentPos]
+		selectedSlot.get_node("Sprite2D").animation = "selected"
 		
 		if Input.is_action_just_pressed("delete_item"):
 			if !inv.items[currentPos] == null:
 				dialog.visible = true
-		
-				
-
 
 func close():
 	get_parent().isFreezed = false
@@ -105,12 +93,8 @@ func open():
 	get_parent().isFreezed = true
 	inv_open = true
 	visible = true
-	#selectedSlot.get_node("Sprite2D").set_texture(preload(("res://icons/dummy/Selected_Inventory_Tile.png")))
 	selectedSlot.get_node("Sprite2D").animation = "selected"
-
 
 func _on_delete_pressed():
 	inv.items[currentPos] = null
 	update_slots()
-
-
