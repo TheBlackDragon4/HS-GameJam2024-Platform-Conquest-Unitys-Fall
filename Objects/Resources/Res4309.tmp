@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr0nbmg7auouw"]
+
+[ext_resource type="Script" path="res://Objects/Resources/ResourceNode_Tree.gd" id="1_dyxux"]
+[ext_resource type="Texture2D" uid="uid://b0wxmo3yvxcr5" path="res://icons/dummy/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png" id="2_5t7fb"]
+[ext_resource type="Script" path="res://Objects/Resources/pickable_area.gd" id="2_wgbwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyio"]
+size = Vector2(26, 31)
+
+[node name="resource_tree" type="Node2D"]
+position = Vector2(171, 977)
+script = ExtResource("1_dyxux")
+
+[node name="pickable_area" type="Area2D" parent="."]
+script = ExtResource("2_wgbwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ppyio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_5t7fb")

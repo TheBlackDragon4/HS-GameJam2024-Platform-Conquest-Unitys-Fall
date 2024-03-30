@@ -51,3 +51,7 @@ func _physics_process(delta):
 		move_and_slide()
 		var isLeft = velocity.x < 0
 		main_character_sprite.flip_h = isLeft
+
+
+#func _on_tree_body_entered(body):
+	#$resource_tree.interact()
