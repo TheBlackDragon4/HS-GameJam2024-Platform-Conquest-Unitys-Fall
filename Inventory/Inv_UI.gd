@@ -64,22 +64,23 @@ func _input(_event):
 				if currentPos > 0:
 					currentPos = currentPos-1
 				else:
-					currentPos = currentPos-1+12
+					currentPos = currentPos+11
 			"right":
 				if currentPos < 9:
 					currentPos = currentPos+1
 				else:
-					currentPos = currentPos+1-12
+					currentPos = currentPos-11
 			"jump":
 				if currentPos > 3:
 					currentPos = currentPos-4
 				else:
-					currentPos = currentPos+12-4
+					currentPos = currentPos+8
 			"interact":
+				
 				if currentPos < 8:
-					currentPos = currentPos-8+4
-				else:
 					currentPos = currentPos+4
+				else:
+					currentPos = currentPos-8
 					
 		selectedSlot = slotArray[currentPos]
 		selectedSlot.get_node("Sprite2D").animation = "selected"
