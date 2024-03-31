@@ -1,7 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://86dkt0ldjmam"]
+[gd_scene load_steps=10 format=3 uid="uid://86dkt0ldjmam"]
 
 [ext_resource type="Script" path="res://enemys/scripts/crawler.gd" id="1_ham0p"]
-[ext_resource type="Texture2D" uid="uid://dgrv2vnvj5rta" path="res://icon.svg" id="2_bhbi5"]
+[ext_resource type="Texture2D" uid="uid://cosdve5kl7uwn" path="res://enemys/resourses/Slime death.png" id="2_xh50t"]
+[ext_resource type="Texture2D" uid="uid://bbpqfu3lqk6d0" path="res://enemys/resourses/slime.png" id="3_8mkmp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcrhl"]
+atlas = ExtResource("2_xh50t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3q3a"]
+atlas = ExtResource("2_xh50t")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf3c4"]
+atlas = ExtResource("2_xh50t")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35txd"]
+atlas = ExtResource("2_xh50t")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxyo1"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xcrhl")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_p3q3a")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_lf3c4")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_35txd")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8mkmp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx02d"]
 size = Vector2(128, 128)
@@ -10,8 +55,11 @@ size = Vector2(128, 128)
 top_level = true
 script = ExtResource("1_ham0p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_bhbi5")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mxyo1")
+animation = &"death"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 top_level = true
