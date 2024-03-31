@@ -9,7 +9,7 @@ var reverse = false
 
 func _physics_process(_delta):
 	var enemy_position = $".".position
-	var character_position = $"../CharacterBody2D".position
+	var character_position = $"../Level_template/CharacterBody2D".position
 	if (reverse):
 		if (character_position.distance_to(enemy_position)> 700):
 			reverse = false

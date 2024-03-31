@@ -468,6 +468,12 @@ sources/0 = SubResource("TileSetAtlasSource_p2mhu")
 [node name="Level_template" type="Node2D"]
 script = ExtResource("1_vk4po")
 
+[node name="Door" parent="." instance=ExtResource("5_igcyi")]
+visible = false
+top_level = true
+position = Vector2(1750, 915)
+sceneChanger = "res://worlds/overworld/scenes/overworld"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(958, 540)
 
@@ -485,11 +491,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_xtju2")]
 position = Vector2(166, 920)
-
-[node name="Door" parent="." instance=ExtResource("5_igcyi")]
-visible = false
-position = Vector2(1750, 915)
-sceneChanger = "res://worlds/overworld/scenes/overworld"
 
 [node name="Pause_Menu" type="Node" parent="."]
 
