@@ -54,9 +54,6 @@ func _physics_process(delta):
 		var isLeft = velocity.x < 0
 		main_character_sprite.flip_h = isLeft
 
-#func _on_tree_body_entered(body):
-	#$resource_tree.interact()
-
 func _process(_delta):
 	if Global.weapon:
 		var EquipSprite = $HandEquip/EquipSprite

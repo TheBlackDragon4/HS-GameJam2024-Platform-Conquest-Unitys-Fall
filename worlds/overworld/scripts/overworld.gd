@@ -63,16 +63,17 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("menu_first") and pause_menu_window.visible:
 		pause_menu_button1.emit_signal("pressed")
-	if Input.is_action_just_pressed("menu_second")and pause_menu_window.visible:
+	if Input.is_action_just_pressed("menu_second") and pause_menu_window.visible:
 		pause_menu_button2.emit_signal("pressed")
-		
-		
+	
+	
 
 	
 func _input(_event):
 	if Input.is_action_just_pressed("pause_game"):
 		pause_window.visible = !pause_window.visible
 		Global.game_freeze = !Global.game_freeze
+		
 		
 	
 

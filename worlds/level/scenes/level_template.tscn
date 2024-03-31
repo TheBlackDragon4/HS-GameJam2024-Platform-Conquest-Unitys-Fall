@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfx38j1143dw6"]
+[gd_scene load_steps=10 format=3 uid="uid://bfx38j1143dw6"]
 
 [ext_resource type="Script" path="res://worlds/level/scripts/level_template.gd" id="1_vk4po"]
 [ext_resource type="Texture2D" uid="uid://clr278ca8a1d8" path="res://assets/Background/Gray.png" id="2_fsfxd"]
 [ext_resource type="Texture2D" uid="uid://jln6cg53ypjq" path="res://assets/Terrain/Terrain (16x16).png" id="3_8t72q"]
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="4_xtju2"]
 [ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/scenes/door.tscn" id="5_igcyi"]
+[ext_resource type="PackedScene" uid="uid://cjo3xf30agtbl" path="res://enemys/scenes/enemy_spwner.tscn" id="6_6u1gj"]
+[ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/crawler.tscn" id="7_wavbb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2mhu"]
 texture = ExtResource("3_8t72q")
@@ -490,3 +492,49 @@ position = Vector2(-252.389, -35.5994)
 visible = false
 position = Vector2(1747, 944)
 sceneChanger = "res://worlds/overworld/scenes/overworld"
+
+[node name="Pause_Menu" type="Node" parent="."]
+
+[node name="Pause_Window" type="Window" parent="Pause_Menu"]
+title = "Pause"
+initial_position = 1
+size = Vector2i(200, 200)
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Menu/Pause_Window"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -62.5
+offset_right = 48.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button_resume" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+y_sort_enabled = true
+layout_mode = 2
+text = "Resume"
+flat = true
+
+[node name="Button_menu" type="Button" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+text = "Main Menu"
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause_Menu/Pause_Window/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="enemy_spawner" parent="." node_paths=PackedStringArray("door") instance=ExtResource("6_6u1gj")]
+position = Vector2(1231, 617)
+spawn_enemy = ExtResource("7_wavbb")
+door = NodePath("../Door")
+
+[connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]

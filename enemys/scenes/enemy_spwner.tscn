@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" path="res://enemys/scenes/enemy_spwner.gd" id="1_xfscl"]
 
-[node name="Node2D" type="Node2D"]
+[node name="enemy_spawner" type="Node2D"]
 script = ExtResource("1_xfscl")
+wait_time = 3.0
+spawncount = 2
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
