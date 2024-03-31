@@ -6,7 +6,6 @@
 [node name="Finallevel0" type="Node2D"]
 
 [node name="Level_template" parent="." instance=ExtResource("1_fodmj")]
-position = Vector2(376, 223)
 
 [node name="enemy_Crawler" parent="." instance=ExtResource("2_mvjow")]
-position = Vector2(1650, 1058)
+position = Vector2(1565, 807)
