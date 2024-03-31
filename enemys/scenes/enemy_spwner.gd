@@ -7,6 +7,7 @@ extends Node2D
 var spawned_mobs = 0
 var waveSpawend = false
 
+
 func _ready():
 	$Timer.wait_time = wait_time
 	
@@ -26,7 +27,7 @@ func _physics_process(_delta):
 
 func spawn_mob():
 	var mob = spawn_enemy.instantiate()
-
+	
 	mob.position = $".".position
 	
 	$".".add_child(mob)

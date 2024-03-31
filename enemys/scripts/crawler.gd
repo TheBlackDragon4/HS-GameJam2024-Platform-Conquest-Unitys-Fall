@@ -15,8 +15,12 @@ func _physics_process(_delta):
 
 func attack(damage):
 	health -= damage
-	if health < 0:
+	if health <= 0:
 		#TODO:Death Animation
 		crawler_sprite.play("death")
-		queue_free()
+		#queue_free()
 		
+
+
+func _on_sprite_2d_animation_finished():
+	queue_free()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=23 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
 [ext_resource type="Texture2D" uid="uid://cc7xgmat84gd0" path="res://player/resources/skin/player(128x128).png" id="2_cj4tt"]
 [ext_resource type="Texture2D" uid="uid://vwni1lv2wvn" path="res://assets/Main Characters/Pink Man/Jump (32x32).png" id="3_32tby"]
 [ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
 [ext_resource type="Texture2D" uid="uid://b0wxmo3yvxcr5" path="res://icons/dummy/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png" id="5_celld"]
+[ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3pn5"]
 atlas = ExtResource("3_32tby")
@@ -121,7 +122,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhlol"]
 size = Vector2(60.5, 120)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkp7y"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40s1l"]
+height = 67.4728
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
@@ -134,6 +136,7 @@ texture_filter = 1
 position = Vector2(412, 964)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7yfj3")
+animation = &"running"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -153,15 +156,16 @@ position = Vector2(358, 988)
 
 [node name="EquipSprite" type="Sprite2D" parent="HandEquip"]
 texture_filter = 1
-position = Vector2(31, -9)
+position = Vector2(138, -28)
 rotation = 1.26715
-scale = Vector2(1.92228, 2.832)
+scale = Vector2(2.5, 3.684)
 texture = ExtResource("5_celld")
 
 [node name="Area2D" type="Area2D" parent="HandEquip/EquipSprite"]
+script = ExtResource("6_ccwyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandEquip/EquipSprite/Area2D"]
-position = Vector2(1.63057, 0.82252)
-rotation = 1.46718
-scale = Vector2(-1.69818, -0.58559)
-shape = SubResource("CapsuleShape2D_bkp7y")
+position = Vector2(1.07642, -2.33124)
+rotation = -1.1973
+scale = Vector2(-1.73043, 1.25575)
+shape = SubResource("CapsuleShape2D_40s1l")
