@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0cc6ukl1fkrd"
-path="res://.godot/imported/Biene.png-7020196f2b2dd53d6ee2e9556972222b.ctex"
+uid="uid://82bhdmtp50rw"
+path="res://.godot/imported/Jump (32x32) (2).png-36fcbddea75787b6035d0cc51f730d37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemys/resourses/Biene.png"
-dest_files=["res://.godot/imported/Biene.png-7020196f2b2dd53d6ee2e9556972222b.ctex"]
+source_file="res://assets/Main Characters/Pink Man/Jump (32x32) (2).png"
+dest_files=["res://.godot/imported/Jump (32x32) (2).png-36fcbddea75787b6035d0cc51f730d37.ctex"]
 
 [params]
 
