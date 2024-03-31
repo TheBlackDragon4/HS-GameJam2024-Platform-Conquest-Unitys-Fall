@@ -20,6 +20,9 @@ const border_height_offset = 800
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+	if Global.level_completed[0] == true:
+		get_tree().change_scene_to_file("res://menu/credits/scenes/credits.tscn")
+	
 	var world_rect = tile_map.get_used_rect()
 	var tile_to_pixel_factor = tile_map.tile_set.tile_size.x * tile_map.scale.x
 	
@@ -73,8 +76,14 @@ func _input(_event):
 	if Input.is_action_just_pressed("pause_game"):
 		pause_window.visible = !pause_window.visible
 		Global.game_freeze = !Global.game_freeze
-		
-		
+	if Input.is_action_just_pressed("cheat_force_all_levels_complete"):
+		Global.level_completed[1] = true
+		Global.level_completed[2] = true
+		Global.level_completed[3] = true
+		Global.level_completed[4] = true
+		Global.level_completed[5] = true
+		Global.level_completed[6] = true
+	
 	
 
 func _on_button_resume_pressed():
