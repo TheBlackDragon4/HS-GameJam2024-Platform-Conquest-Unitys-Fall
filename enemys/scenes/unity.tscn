@@ -1,11 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnnlnrm3v3dbc"]
+[gd_scene load_steps=15 format=3 uid="uid://dnnlnrm3v3dbc"]
 
 [ext_resource type="Texture2D" uid="uid://lewt1qggnfkg" path="res://enemys/resourses/unity.png" id="1_3cf30"]
 [ext_resource type="Script" path="res://enemys/scripts/unity.gd" id="1_tev6x"]
+[ext_resource type="Texture2D" uid="uid://bhnhv40waemrb" path="res://enemys/resourses/unity death.png" id="2_40ces"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvt37"]
+atlas = ExtResource("2_40ces")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6da5q"]
+atlas = ExtResource("2_40ces")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0xos"]
+atlas = ExtResource("2_40ces")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuek6"]
+atlas = ExtResource("2_40ces")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1tx0"]
+atlas = ExtResource("2_40ces")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47n1g"]
+atlas = ExtResource("2_40ces")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj4d7"]
+atlas = ExtResource("2_40ces")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lv7v"]
+atlas = ExtResource("2_40ces")
+region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxyo1"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvt37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6da5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0xos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuek6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1tx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47n1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj4d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lv7v")
+}],
 "loop": false,
 "name": &"death",
 "speed": 5.0
