@@ -197,17 +197,16 @@ limit_smoothed = true
 editor_draw_limits = true
 
 [node name="HandEquip" type="Node2D" parent="."]
-position = Vector2(-53.28, 15.9)
 
 [node name="EquipSprite" type="Sprite2D" parent="HandEquip"]
 texture_filter = 1
-position = Vector2(158, -32)
+position = Vector2(87, -10)
 rotation = 1.26715
 scale = Vector2(2.5, 3.684)
 texture = ExtResource("5_celld")
 
 [node name="Area2D" type="Area2D" parent="HandEquip/EquipSprite"]
-position = Vector2(3.68472, -8.88805)
+position = Vector2(3.78653, -14.5556)
 script = ExtResource("6_ccwyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandEquip/EquipSprite/Area2D"]
