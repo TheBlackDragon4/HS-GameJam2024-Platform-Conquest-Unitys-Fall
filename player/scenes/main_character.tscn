@@ -1,10 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=23 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
 [ext_resource type="Texture2D" uid="uid://wegah4qx6m3q" path="res://player/resources/skin/Idle (128x128).png" id="2_55xcw"]
 [ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
 [ext_resource type="Texture2D" uid="uid://c0mj6g34vr5o1" path="res://assets/Main Characters/Pink Man/Fall (32x32).png" id="4_d138k"]
-[ext_resource type="Texture2D" uid="uid://b0wxmo3yvxcr5" path="res://icons/dummy/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png" id="5_celld"]
 [ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evajd"]
@@ -168,7 +167,6 @@ texture_filter = 1
 position = Vector2(87, -10)
 rotation = 1.26715
 scale = Vector2(2.5, 3.684)
-texture = ExtResource("5_celld")
 
 [node name="Area2D" type="Area2D" parent="HandEquip/EquipSprite"]
 position = Vector2(3.78653, -14.5556)
