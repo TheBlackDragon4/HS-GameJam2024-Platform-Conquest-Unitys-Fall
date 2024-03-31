@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmekjfv7fr2mp"]
+[gd_scene load_steps=5 format=3 uid="uid://c5mw7eq6o0wru"]
 
 [ext_resource type="PackedScene" uid="uid://bfx38j1143dw6" path="res://worlds/level/scenes/level_template.tscn" id="1_kvdjx"]
+[ext_resource type="PackedScene" uid="uid://cjo3xf30agtbl" path="res://enemys/scenes/enemy_spwner.tscn" id="2_ge5nk"]
+[ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/crawler.tscn" id="3_hbn07"]
+[ext_resource type="PackedScene" uid="uid://dbethk82rxkyx" path="res://enemys/scenes/biene.tscn" id="4_a31r4"]
 
-[node name="Level4" type="Node2D"]
+[node name="Level1" type="Node2D"]
 
 [node name="Level_template" parent="." instance=ExtResource("1_kvdjx")]
-position = Vector2(376, 223)
+
+[node name="enemy_spawner" parent="." node_paths=PackedStringArray("door") instance=ExtResource("2_ge5nk")]
+position = Vector2(1572, 910)
+spawn_enemy = ExtResource("3_hbn07")
+door = NodePath("../Level_template")
+wait_time = 1.6
+spawncount = 4
+
+[node name="enemy_Biene3" parent="." instance=ExtResource("4_a31r4")]
+position = Vector2(940, 298)
+
+[node name="enemy_Biene2" parent="." instance=ExtResource("4_a31r4")]
+position = Vector2(488, 333)
+
+[node name="enemy_Biene" parent="." instance=ExtResource("4_a31r4")]
+position = Vector2(1267, 476)

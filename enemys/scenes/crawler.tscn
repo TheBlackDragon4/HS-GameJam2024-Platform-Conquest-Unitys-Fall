@@ -52,7 +52,7 @@ animations = [{
 size = Vector2(97.3333, 52.6667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_187mp"]
-size = Vector2(154, 79)
+size = Vector2(154, 87)
 
 [node name="enemy_Crawler" type="CharacterBody2D"]
 top_level = true
@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_dx02d")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, 4.5)
+position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_187mp")
 
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

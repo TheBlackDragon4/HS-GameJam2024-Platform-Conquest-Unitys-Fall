@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://0jo6nhqmn78g"]
+[gd_scene load_steps=4 format=3 uid="uid://0jo6nhqmn78g"]
 
 [ext_resource type="PackedScene" uid="uid://bfx38j1143dw6" path="res://worlds/level/scenes/level_template.tscn" id="1_b28iq"]
+[ext_resource type="PackedScene" uid="uid://cjo3xf30agtbl" path="res://enemys/scenes/enemy_spwner.tscn" id="2_ovobh"]
+[ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/crawler.tscn" id="3_sxweu"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Level_template" parent="." instance=ExtResource("1_b28iq")]
-position = Vector2(246, 250)
+
+[node name="enemy_spawner" parent="." node_paths=PackedStringArray("door") instance=ExtResource("2_ovobh")]
+position = Vector2(1572, 910)
+spawn_enemy = ExtResource("3_sxweu")
+door = NodePath("../Level_template")
+wait_time = 2.0
+spawncount = 1

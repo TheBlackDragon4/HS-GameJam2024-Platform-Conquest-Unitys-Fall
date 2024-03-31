@@ -21,8 +21,11 @@ func _on_timer_timeout():
 func _physics_process(_delta):
 	if (waveSpawend):
 		if ($".".get_child_count() == 1):
+			print(door)
 			if door != null:
-				door.visible = true
+				print(door.get_child(0))
+				print(door.get_child(0).visible)
+				door.get_child(0).visible = true
 
 func spawn_mob():
 	var mob = spawn_enemy.instantiate()
