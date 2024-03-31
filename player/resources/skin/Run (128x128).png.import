@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfls62f1x6w21"
-path="res://.godot/imported/Double Jump (32x32).png-5dd9a1fe9a6c8cccb7bc5fdd7fe53a41.ctex"
+uid="uid://cno7om0l63s7f"
+path="res://.godot/imported/Run (128x128).png-146eef0032c64a67c17b610683fd03f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Main Characters/Pink Man/Double Jump (32x32).png"
-dest_files=["res://.godot/imported/Double Jump (32x32).png-5dd9a1fe9a6c8cccb7bc5fdd7fe53a41.ctex"]
+source_file="res://player/resources/skin/Run (128x128).png"
+dest_files=["res://.godot/imported/Run (128x128).png-146eef0032c64a67c17b610683fd03f3.ctex"]
 
 [params]
 
