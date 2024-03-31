@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://86dkt0ldjmam"]
+[gd_scene load_steps=11 format=3 uid="uid://86dkt0ldjmam"]
 
 [ext_resource type="Script" path="res://enemys/scripts/crawler.gd" id="1_ham0p"]
 [ext_resource type="Texture2D" uid="uid://cosdve5kl7uwn" path="res://enemys/resourses/Slime death.png" id="2_xh50t"]
@@ -51,6 +51,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx02d"]
 size = Vector2(97.3333, 52.6667)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_187mp"]
+size = Vector2(154, 79)
+
 [node name="enemy_Crawler" type="CharacterBody2D"]
 top_level = true
 script = ExtResource("1_ham0p")
@@ -65,4 +68,11 @@ position = Vector2(3, 0.5)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_dx02d")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 4.5)
+shape = SubResource("RectangleShape2D_187mp")
+
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

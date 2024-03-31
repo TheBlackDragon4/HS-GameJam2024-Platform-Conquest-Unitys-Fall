@@ -24,3 +24,8 @@ func attack(damage):
 
 func _on_sprite_2d_animation_finished():
 	queue_free()
+
+
+func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if body.name.begins_with("CharacterBody2D"):
+		body.attack(Global.crawler_base_damage)# Replace with function body.
