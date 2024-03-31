@@ -530,10 +530,11 @@ flat = true
 layout_mode = 2
 theme_override_constants/margin_top = 60
 
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
-[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
-
 [node name="enemy_spawner" parent="." node_paths=PackedStringArray("door") instance=ExtResource("6_6u1gj")]
 position = Vector2(1231, 617)
 spawn_enemy = ExtResource("7_wavbb")
 door = NodePath("../Door")
+
+[connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
+[connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_menu" to="." method="_on_button_menu_pressed"]
