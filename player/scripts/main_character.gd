@@ -67,7 +67,7 @@ func _process(_delta):
 		EquipSprite.texture = Global.weapon.texture
 
 func attack(damage):
-	var audio = $AudioStreamPlayer2D
+	var audio = $"../AudioStreamPlayer2D"
 	audio.play()
 	player_health -= damage
 	$ProgressBar.value = player_health

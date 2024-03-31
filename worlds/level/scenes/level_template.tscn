@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfx38j1143dw6"]
+[gd_scene load_steps=9 format=3 uid="uid://bfx38j1143dw6"]
 
 [ext_resource type="Script" path="res://worlds/level/scripts/level_template.gd" id="1_vk4po"]
 [ext_resource type="Texture2D" uid="uid://clr278ca8a1d8" path="res://assets/Background/Gray.png" id="2_fsfxd"]
 [ext_resource type="Texture2D" uid="uid://jln6cg53ypjq" path="res://assets/Terrain/Terrain (16x16).png" id="3_8t72q"]
 [ext_resource type="PackedScene" uid="uid://cfhp8gk08xd12" path="res://player/scenes/main_character.tscn" id="4_xtju2"]
 [ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/scenes/door.tscn" id="5_igcyi"]
+[ext_resource type="AudioStream" uid="uid://bqaru1vhf7d0g" path="res://sounds/hurt_c_08-102842.mp3" id="6_cci0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2mhu"]
 texture = ExtResource("3_8t72q")
@@ -528,6 +529,9 @@ flat = true
 [node name="MarginContainer" type="MarginContainer" parent="Pause_Menu/Pause_Window/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 60
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_cci0u")
 
 [connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
