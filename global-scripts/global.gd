@@ -13,3 +13,5 @@ var player_base_damage = 50
 var crawler_base_damage = 25
 
 var level_completed = [false,false,false,false,false,false,false]
+# global damage 
+# var damage: weapon.damage

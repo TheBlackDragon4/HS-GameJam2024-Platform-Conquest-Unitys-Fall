@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -800.0
 @onready var weapon_sprite: Sprite2D = null
 
 var player_health = 100
+@onready var equipSprite = $HandEquip/EquipSprite
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,6 +16,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const border_size = 300
 
 var isFreezed = false
+
+func getEquipSprite():
+	return equipSprite
 
 func _physics_process(delta):
 	if(Global.game_freeze):
