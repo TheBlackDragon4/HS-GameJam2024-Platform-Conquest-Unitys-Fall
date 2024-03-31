@@ -11,3 +11,9 @@ func _physics_process(_delta):
 		velocity.x = speed
 	move_and_slide()
 
+func attack(damage):
+	health -= damage
+	if health < 0:
+		#TODO:Death Animation
+		queue_free()
+		
