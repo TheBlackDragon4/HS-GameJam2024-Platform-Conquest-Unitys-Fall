@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0wxmo3yvxcr5"
-path="res://.godot/imported/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png-0ca4f61f69ae5b7cad712547abd44265.ctex"
+path="res://.godot/imported/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png-b13e2808589fb79681cd0d35a8fa68e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/dummy/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png"
-dest_files=["res://.godot/imported/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png-0ca4f61f69ae5b7cad712547abd44265.ctex"]
+source_file="res://icons/dummy_old/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png"
+dest_files=["res://.godot/imported/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png-b13e2808589fb79681cd0d35a8fa68e8.ctex"]
 
 [params]
 

@@ -7,3 +7,4 @@
 script = ExtResource("1_jd57b")
 name = "Stick"
 texture = ExtResource("2_n2oah")
+damage = 0
