@@ -8,4 +8,4 @@ var crawl_enemy_health = 100
 
 var weapon: InvItem = null
 
-var player_base_damage = 100
+var player_base_damage = 50
