@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -800.0
 
 @onready var weapon_sprite: Sprite2D = null
 
+var player_health = 100
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -59,3 +61,11 @@ func _process(_delta):
 	if Global.weapon:
 		var EquipSprite = $HandEquip/EquipSprite
 		EquipSprite.texture = Global.weapon.texture
+
+func attack(damage):
+	var audio = $AudioStreamPlayer2D
+	audio.play()
+	player_health -= damage
+	$ProgressBar.value = player_health
+	if player_health <= 0:
+		get_tree().change_scene_to_file("res://menu/main_menu/scenes/main_menu.tscn")
