@@ -45,9 +45,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
-
+		$HandEquip.scale.x = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, 40)
+		$HandEquip.scale.x = 1
 
 	if(!Global.game_freeze):
 		move_and_slide()
