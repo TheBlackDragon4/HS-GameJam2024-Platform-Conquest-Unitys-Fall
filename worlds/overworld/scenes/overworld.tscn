@@ -715,14 +715,14 @@ sceneChanger = "worlds/level/scenes/level6"
 
 [node name="CharacterBody2D" parent="Node" instance=ExtResource("6_8hils")]
 visibility_layer = 4
-position = Vector2(-269, -352)
+position = Vector2(171, 618)
 metadata/_edit_lock_ = true
 
 [node name="Inv_UI" parent="Node/CharacterBody2D" instance=ExtResource("7_ustfd")]
-offset_left = 382.0
-offset_top = 635.0
-offset_right = 468.0
-offset_bottom = 701.0
+offset_left = -8.0
+offset_top = -312.0
+offset_right = 78.0
+offset_bottom = -246.0
 
 [node name="DeleteDialog" type="Window" parent="Node/CharacterBody2D/Inv_UI"]
 initial_position = 1
