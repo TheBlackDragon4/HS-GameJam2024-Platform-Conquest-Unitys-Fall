@@ -1,12 +1,19 @@
 extends Control
 
 @onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
+@onready var craft: Inv = preload("res://Inventory/crafting/player_crafting_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var craft_slots: Array = $NinePatchCrafting/GridContainer.get_children()
 
 var inv_open = false
 @onready var selectedSlot = $NinePatchRect/GridContainer/Inv_UI_Slot1
+@onready var selectedSlotCrafting = null
 var slotArray = []
+var craftArray = []
 var currentPos = 0
+var craftingPos = -1
+var selectMode = "inv" # inv or craft
+
 
 @onready var dialog = $DeleteDialog
 @onready var equipButton = $DeleteDialog/HBoxContainer/Equip
@@ -20,11 +27,15 @@ func _ready():
 	close()
 	for slot in $NinePatchRect/GridContainer.get_children():
 		slotArray.append(slot)
+	for slot in $NinePatchCrafting/GridContainer.get_children():
+		craftArray.append(slot)
 	Global.weapon = weapon
 
 func update_slots():
 	for i in range(min(inv.items.size(), slots.size())):
 		slots[i].update(inv.items[i])
+	for i in range(min(craft.items.size(), craft_slots.size())):
+		craft_slots[i].update(craft.items[i])
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Inventory") and dialog.visible:
@@ -60,33 +71,205 @@ func _input(_event):
 		if Input.is_action_just_pressed("interact"):
 			action = "interact"
 		
-		selectedSlot.get_node("Sprite2D").animation = "default"
+		if selectMode == "inv":
+			selectedSlot.get_node("Sprite2D").animation = "default"
+		else:
+			selectedSlotCrafting.get_node("Sprite2D").animation = "default"
 		
 		match action:
 			"left":
-				if currentPos > 0:
-					currentPos = currentPos-1
+				if selectMode == "inv":
+					match currentPos:
+						0:
+							currentPos = -1
+							craftingPos = 2
+							selectMode = "craft"
+							print("0, left")
+						4:
+							currentPos = -1
+							craftingPos = 5
+							selectMode = "craft"
+						8:
+							currentPos = -1
+							craftingPos = 8
+							selectMode = "craft"
+						_:
+							print("i dont care, i will do, what i wanna do")
+							if currentPos != -1:
+								currentPos = currentPos-1
+								selectMode = "inv"
+							#else:
+								#craftingPos = craftingPos-1
 				else:
-					currentPos = currentPos+11
+					match craftingPos:
+						0:
+							currentPos = 3
+							craftingPos = -1
+							selectMode = "inv"
+						3:
+							currentPos = 7
+							craftingPos = -1
+							selectMode = "inv"
+						6:
+							currentPos = 11
+							craftingPos = -1
+							selectMode = "inv"
+						_:
+							if craftingPos != -1:
+								#currentPos = currentPos-1
+								#selectMode = "inv"
+							#else:
+								craftingPos = craftingPos-1
+								selectMode = "craft"
+							
 			"right":
-				if currentPos < 11:
-					currentPos = currentPos+1
+				if selectMode == "inv":
+					match currentPos:
+						3:
+							currentPos = -1
+							craftingPos = 0
+							selectMode = "craft"
+						7:
+							currentPos = -1
+							craftingPos = 3
+							selectMode = "craft"
+						11:
+							currentPos = -1
+							craftingPos = 6
+							selectMode = "craft"
+						_:
+							#if craftingPos == -1:
+								#currentPos = currentPos+1
+							#else:
+							if currentPos != -1:
+								currentPos = currentPos+1
+								#craftingPos = craftingPos+1
+								selectMode = "inv"
 				else:
-					currentPos = currentPos-11
+					match craftingPos:
+						2:
+							currentPos = 0
+							craftingPos = -1
+							selectMode = "inv"
+						5:
+							currentPos = 4
+							craftingPos = -1
+							selectMode = "inv"
+						8:
+							currentPos = 8
+							craftingPos = -1
+							selectMode = "inv"
+						_:
+							if craftingPos != -1:
+								craftingPos = craftingPos+1
+								#currentPos = currentPos+1
+								selectMode = "craft"
+							#else:
+							
 			"jump":
-				if currentPos > 3:
-					currentPos = currentPos-4
+				if selectMode == "inv":
+					match currentPos:
+						0:
+							currentPos = 8
+							craftingPos = -1
+							selectMode = "inv"
+						1:
+							currentPos = 9
+							craftingPos = -1
+							selectMode = "inv"
+						2:
+							currentPos = 10
+							craftingPos = -1
+							selectMode = "inv"
+						3:
+							currentPos = 11
+							craftingPos = -1
+							selectMode = "inv"
+						_:
+							#if craftingPos == -1:
+							if currentPos != -1:
+								currentPos = currentPos-4
+								selectMode = "inv"
+							#else:
+								#craftingPos = craftingPos-3
 				else:
-					currentPos = currentPos+8
+					match craftingPos:
+						0:
+							currentPos = -1
+							craftingPos = 6
+							selectMode = "craft"
+						1:
+							currentPos = -1
+							craftingPos = 7
+							selectMode = "craft"
+						2:
+							currentPos = -1
+							craftingPos = 8
+							selectMode = "craft"
+						_:
+							#if craftingPos == -1:
+								#currentPos = currentPos-4
+							#else:
+							if craftingPos != -1:
+								craftingPos = craftingPos-3
+								selectMode = "craft"
+								
 			"interact":
-				
-				if currentPos < 8:
-					currentPos = currentPos+4
+				if selectMode == "inv":
+					match currentPos:
+						8:
+							currentPos = 0
+							craftingPos = -1
+							selectMode = "inv"
+						9:
+							currentPos = 1
+							craftingPos = -1
+							selectMode = "inv"
+						10:
+							currentPos = 2
+							craftingPos = -1
+							selectMode = "inv"
+						11:
+							currentPos = 3
+							craftingPos = -1
+							selectMode = "inv"
+						_:
+							if currentPos != -1:
+								currentPos = currentPos+4
+								selectMode = "inv"
+							#else:
+								#craftingPos = craftingPos+3
 				else:
-					currentPos = currentPos+4-12
+					match craftingPos:
+						6:
+							currentPos = -1
+							craftingPos = 0
+							selectMode = "craft"
+						7:
+							currentPos = -1
+							craftingPos = 1
+							selectMode = "craft"
+						8:
+							currentPos = -1
+							craftingPos = 2
+							selectMode = "craft"
+						_:
+							#if craftingPos == -1:
+								#currentPos = currentPos+4
+							#else:
+							if craftingPos != -1:
+								craftingPos = craftingPos+3
+								selectMode = "craft"
 					
-		selectedSlot = slotArray[currentPos]
-		selectedSlot.get_node("Sprite2D").animation = "selected"
+		print("craftingPos: ", craftingPos, " currentPos: ", currentPos, " mode: ", selectMode)
+		if selectMode == "inv":
+			selectedSlot = slotArray[currentPos]
+			selectedSlot.get_node("Sprite2D").animation = "selected"
+		else:
+			print(slotArray)
+			print(craftArray)
+			selectedSlotCrafting = craftArray[craftingPos]
+			selectedSlotCrafting.get_node("Sprite2D").animation = "selected"
 		
 		if Input.is_action_just_pressed("delete_item"):
 			if inv.items[currentPos] != null and currentPos != 0:

@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b74u4w8fu1rm0"]
+
+[ext_resource type="Script" path="res://Inventory/crafting/craft_ui_slot.gd" id="1_6fqa3"]
+[ext_resource type="Texture2D" uid="uid://cs6kg7wisdmps" path="res://icons/dummy/Inventory_Tile.png" id="2_cd3mq"]
+[ext_resource type="Texture2D" uid="uid://cl7kte2mq85kc" path="res://icons/dummy/Selected_Inventory_Tile.png" id="3_bb15o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2ixe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cd3mq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bb15o")
+}],
+"loop": false,
+"name": &"selected",
+"speed": 0.0
+}]
+
+[node name="Craft_UI_Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(55, 55)
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.025
+anchor_right = 0.014
+anchor_bottom = 0.025
+offset_left = -26.88
+offset_top = -27.0
+offset_right = 28.12
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6fqa3")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+texture_filter = 1
+scale = Vector2(1.375, 1.375)
+sprite_frames = SubResource("SpriteFrames_k2ixe")
+autoplay = "default"
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -27.5
+offset_right = 27.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Item_Display" type="Sprite2D" parent="CenterContainer/Panel"]
+z_index = 2

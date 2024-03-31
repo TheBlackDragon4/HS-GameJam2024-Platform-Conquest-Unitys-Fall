@@ -567,10 +567,10 @@ collision_mask = 3
 metadata/_edit_lock_ = true
 
 [node name="Inv_UI" parent="Node/CharacterBody2D" instance=ExtResource("7_ustfd")]
-offset_left = 280.0
-offset_top = 638.0
-offset_right = 366.0
-offset_bottom = 704.0
+offset_left = 382.0
+offset_top = 635.0
+offset_right = 468.0
+offset_bottom = 701.0
 
 [node name="DeleteDialog" type="Window" parent="Node/CharacterBody2D/Inv_UI"]
 initial_position = 1
