@@ -9,3 +9,5 @@ var crawl_enemy_health = 100
 var weapon: InvItem = null
 
 var player_base_damage = 50
+
+var level_completed = [false,false,false,false,false,false,false]
