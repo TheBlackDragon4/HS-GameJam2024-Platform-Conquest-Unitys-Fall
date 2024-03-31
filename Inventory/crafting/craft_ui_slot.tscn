@@ -54,7 +54,6 @@ y_sort_enabled = true
 texture_filter = 1
 scale = Vector2(1.375, 1.375)
 sprite_frames = SubResource("SpriteFrames_k2ixe")
-animation = &"crafting"
 autoplay = "default"
 centered = false
 

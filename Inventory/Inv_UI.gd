@@ -31,6 +31,25 @@ var invMovementAllowed = true
 
 @onready var weapon = slots[0]
 
+# ---- Sprite gen
+@onready var equipSprite = get_parent().get_node("HandEquip").get_child(0)
+
+
+# Anzahl der Texturen in horizontaler und vertikaler Richtung
+var rows = 3
+var cols = 3
+
+# Liste der Texturen
+var textures = [preload("res://icons/dummy/stick.png"),
+preload("res://icons/dummy/stick2.png"),
+preload("res://icons/dummy/stick3.png"),
+preload("res://icons/dummy/stick5.png"),
+preload("res://icons/dummy/stick9.png")]
+
+@onready var canvas_layer = get_parent().get_node("CanvasLayer")
+# ----
+
+
 func _ready():
 	update_slots()
 	close()
@@ -39,6 +58,37 @@ func _ready():
 	for slot in $NinePatchCrafting/GridContainer.get_children():
 		craftArray.append(slot)
 	Global.weapon = weapon
+	
+	# ---- Sprite gen
+	# Texturen laden (Hier fügen Sie Ihre Texturen hinzu)
+	for i in range(rows * cols):
+		var texture = load("res://icons/dummy/stick.png")
+		textures.append(texture)
+
+	# CanvasLayer erstellen, um die Texturen zu kombinieren
+	#var canvas_layer = get_parent().getget_parent().get_node("CanvasLayer")
+	#add_child(canvas_layer)
+
+	# Texturen in CanvasLayer zeichnen
+	for y in range(rows):
+		for x in range(cols):
+			var index = y * cols + x
+			var texture = textures[index]
+			var sprite = Sprite2D.new()
+			sprite.texture = texture
+			sprite.position.x = x * texture.get_width()
+			sprite.position.y = y * texture.get_height()
+			#canvas_layer.add_child(sprite)
+			canvas_layer.add_child(sprite)
+			#canvas_layer.offset = equipSprite.global_position
+
+	#canvas_layer.offset = equipSprite.global_transform.origin
+	#print($"../HandEquip/EquipSprite".position)
+	#var x = $"..".position.x - $"../HandEquip/EquipSprite".frame_coords.x
+	#var y = $"..".position.y - $"../HandEquip/EquipSprite".frame_coords.y
+	#canvas_layer.offset = Vector2(x, y) + $"../HandEquip/EquipSprite".frame_coords
+	#print($"../HandEquip/EquipSprite".get_global_position().y - $"../HandEquip/EquipSprite".texture_size.y / 2)
+	# ----
 
 func update_slots():
 	for i in range(min(inv.items.size(), slots.size())):
@@ -56,10 +106,13 @@ func _process(_delta):
 	if Input.is_action_just_pressed("menu_second") and dialog.visible:
 			cancelButton.emit_signal("pressed")
 			dialog.visible = false
+			
+	#print(equipSprite.offset)
+	#print(equipSprite)
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("open_door") and craftDialog.visible:
+	if Input.is_action_just_pressed("start_crafting") and craftDialog.visible:
 			craftButton.emit_signal("pressed")
 			craftDialog.visible = false
 			invMovementAllowed = true
@@ -276,7 +329,7 @@ func _input(_event):
 
 		# Siehe _on_insert_pressed()!
 		if Input.is_action_just_pressed("confirm_insert") and craftingPos == -1:
-			print("Pressed L")
+			#print("Pressed L")
 			var tempSlot = selectedSlot
 			var oldCurrentPos = currentPos
 			var usedCraftItem
@@ -302,7 +355,8 @@ func open():
 	get_parent().isFreezed = true
 	inv_open = true
 	visible = true
-	selectedSlot.get_node("Sprite2D").animation = "selected"
+	if currentPos > -1:
+		selectedSlot.get_node("Sprite2D").animation = "selected"
 
 func _on_delete_pressed():
 	inv.items[currentPos] = null
@@ -316,7 +370,96 @@ func _on_equip_pressed():
 	update_slots()
 
 func _on_craft_pressed():
-	pass # TODO Replace with function body.
+	update_slots()
+	var countCraftItems = 0
+	for i in range(8):
+		if craft.items[i] != null:
+			countCraftItems = countCraftItems + 1
+	#if craft.items.count(InvItem) > 0:
+	if countCraftItems > 0:
+		var counter = 0    
+		#print("i am here")
+		for i in range(8):
+			if craft.items[i] != null:
+				for tex in range(5):
+					if craft.items[i].texture == textures[tex]:
+						#print(craft.items[i].texture, textures[tex])
+						counter = counter + tex+1
+					#print(textures. craft.items[i].texture == <CompressedTexture2D#-9223371998149737140>)
+				#var path = craft.items[i].texture
+				#var regex = path.match("stick(\\d+)")
+				#if regex:
+					#var number_after_stick = regex[1]
+					#counter = counter + number_after_stick
+					#print("Number after 'stick':", number_after_stick)
+					#craft.items[i] = null
+		print(counter)
+		match counter:
+			1:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 5)
+						break
+			2:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick2.png"), 7)
+						break
+			3:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 8)
+						break
+			4:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 9)
+						break
+			5:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 10)
+						break
+			6:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 11)
+						break
+			7:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 12)
+						break
+			8:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 13)
+						break
+			9:
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick9.png"), 15)
+						break
+			_: 
+				for array_item_index in range(1, inv.items.size()):
+					#print(array_item_index)
+					if inv.items[array_item_index] == null: 
+						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
+						break
+			
+		for i in range(8):
+			craft.items[i] = null
+			
+		update_slots()
 
 
 func _on_remove_pressed():
