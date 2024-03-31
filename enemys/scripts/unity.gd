@@ -24,6 +24,7 @@ func attack(damage):
 
 func _on_sprite_2d_animation_finished():
 	queue_free()
+	get_tree().change_scene_to_file("res://menu/credits/scenes/credits.tscn")
 
 
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
