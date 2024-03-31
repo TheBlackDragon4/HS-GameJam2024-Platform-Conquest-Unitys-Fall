@@ -798,6 +798,10 @@ text = "Remove"
 layout_mode = 2
 text = "Insert"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Node/CharacterBody2D"]
+offset = Vector2(0, -10)
+transform = Transform2D(1, 0, 0, 1, 0, -10)
+
 [node name="World Boarder" type="Node" parent="Node"]
 
 [node name="left_container" type="StaticBody2D" parent="Node/World Boarder"]
