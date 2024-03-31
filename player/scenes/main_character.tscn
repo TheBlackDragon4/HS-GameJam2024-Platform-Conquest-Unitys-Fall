@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=24 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
 [ext_resource type="Texture2D" uid="uid://wegah4qx6m3q" path="res://player/resources/skin/Idle (128x128).png" id="2_55xcw"]
 [ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
 [ext_resource type="Texture2D" uid="uid://c0mj6g34vr5o1" path="res://assets/Main Characters/Pink Man/Fall (32x32).png" id="4_d138k"]
+[ext_resource type="AudioStream" uid="uid://bqaru1vhf7d0g" path="res://sounds/hurt_c_08-102842.mp3" id="6_7e4d4"]
 [ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evajd"]
@@ -177,3 +178,13 @@ position = Vector2(0.748096, 13.813)
 rotation = -1.1973
 scale = Vector2(-1.73043, 1.25575)
 shape = SubResource("CapsuleShape2D_40s1l")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -168.0
+offset_top = -142.0
+offset_right = 173.0
+offset_bottom = -115.0
+value = 100.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7e4d4")
