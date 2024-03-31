@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=29 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
 [ext_resource type="Texture2D" uid="uid://wegah4qx6m3q" path="res://player/resources/skin/Idle (128x128).png" id="2_55xcw"]
@@ -7,47 +7,35 @@
 [ext_resource type="Texture2D" uid="uid://b0wxmo3yvxcr5" path="res://icons/dummy/DALLE_2024-03-30_00.31.21_-_A_cartoon-style_tree_depicted_in_a_vibrant_simplistic_design_fitting_within_a_16x16_pixel_art_format._The_tree_features_a_lush_green_canopy_and_a_s.png" id="5_celld"]
 [ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_djfx4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_evajd"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixct8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5r67"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dbqtj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdtwp"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6f0em"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyoai"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yywhw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e37te"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2a2uj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo11x"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(640, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yigne"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hle3o"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(768, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7r1ko"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tv43c"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(1024, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bg4bv"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(1152, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_etqxa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vphdq"]
 atlas = ExtResource("2_55xcw")
 region = Rect2(1280, 0, 128, 128)
 
@@ -103,41 +91,32 @@ region = Rect2(352, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_djfx4")
+"texture": SubResource("AtlasTexture_evajd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ixct8")
+"texture": SubResource("AtlasTexture_y5r67")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dbqtj")
+"texture": SubResource("AtlasTexture_jdtwp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6f0em")
+"texture": SubResource("AtlasTexture_hyoai")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yywhw")
+"texture": SubResource("AtlasTexture_e37te")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2a2uj")
+"texture": SubResource("AtlasTexture_oo11x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yigne")
+"texture": SubResource("AtlasTexture_hle3o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7r1ko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tv43c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bg4bv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_etqxa")
+"texture": SubResource("AtlasTexture_vphdq")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -204,7 +183,7 @@ position = Vector2(412, 964)
 scale = Vector2(1.48, 1.48)
 sprite_frames = SubResource("SpriteFrames_7yfj3")
 autoplay = "default"
-frame_progress = 0.165867
+frame_progress = 0.715581
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 light_mask = 2
