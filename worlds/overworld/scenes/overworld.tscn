@@ -696,7 +696,7 @@ sceneChanger = "worlds/level/scenes/level3"
 [node name="Finallevel" parent="Node/Node" instance=ExtResource("5_oiodm")]
 texture_filter = 1
 position = Vector2(9268, -176)
-sceneChanger = "worlds/level/scenes/Finallevel0"
+sceneChanger = "worlds/level/scenes/level0"
 
 [node name="Door4" parent="Node/Node" instance=ExtResource("5_oiodm")]
 texture_filter = 1
