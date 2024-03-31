@@ -27,8 +27,6 @@ func _input(_event):
 	if Input.is_action_just_pressed("pause_game"):
 		pause_window.visible = !pause_window.visible
 		Global.game_freeze = !Global.game_freeze
-		
-
 
 
 func _on_button_resume_pressed():
