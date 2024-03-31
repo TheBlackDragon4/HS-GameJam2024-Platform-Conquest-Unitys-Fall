@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfx38j1143dw6"]
+[gd_scene load_steps=11 format=3 uid="uid://bfx38j1143dw6"]
 
 [ext_resource type="Script" path="res://worlds/level/scripts/level_template.gd" id="1_vk4po"]
 [ext_resource type="Texture2D" uid="uid://clr278ca8a1d8" path="res://assets/Background/Gray.png" id="2_fsfxd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bafqdsep4y8a8" path="res://door/scenes/door.tscn" id="5_igcyi"]
 [ext_resource type="PackedScene" uid="uid://cjo3xf30agtbl" path="res://enemys/scenes/enemy_spwner.tscn" id="6_6u1gj"]
 [ext_resource type="PackedScene" uid="uid://86dkt0ldjmam" path="res://enemys/scenes/crawler.tscn" id="7_wavbb"]
+[ext_resource type="PackedScene" uid="uid://b5qd7tor8q3dh" path="res://enemys/scenes/biene.tscn" id="8_r7m3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p2mhu"]
 texture = ExtResource("3_8t72q")
@@ -534,6 +535,9 @@ theme_override_constants/margin_top = 60
 position = Vector2(1231, 617)
 spawn_enemy = ExtResource("7_wavbb")
 door = NodePath("../Door")
+
+[node name="enemy_Biene" parent="." instance=ExtResource("8_r7m3i")]
+position = Vector2(410, 245)
 
 [connection signal="close_requested" from="Pause_Menu/Pause_Window" to="." method="_on_button_resume_pressed"]
 [connection signal="pressed" from="Pause_Menu/Pause_Window/VBoxContainer/Button_resume" to="." method="_on_button_resume_pressed"]
