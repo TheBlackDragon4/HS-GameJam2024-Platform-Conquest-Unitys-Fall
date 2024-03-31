@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bfx38j1143dw6" path="res://worlds/level/scenes/level_template.tscn" id="1_kvdjx"]
 
-[node name="Level2" type="Node2D"]
+[node name="Level4" type="Node2D"]
 
 [node name="Level_template" parent="." instance=ExtResource("1_kvdjx")]
 position = Vector2(376, 223)

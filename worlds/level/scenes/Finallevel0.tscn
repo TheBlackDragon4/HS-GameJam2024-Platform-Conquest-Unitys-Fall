@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv1ue1kloatj0"]
+[gd_scene load_steps=3 format=3 uid="uid://bnnhivqogtbje"]
 
 [ext_resource type="PackedScene" uid="uid://bfx38j1143dw6" path="res://worlds/level/scenes/level_template.tscn" id="1_j1ro2"]
+[ext_resource type="PackedScene" uid="uid://dnnlnrm3v3dbc" path="res://enemys/scenes/unity.tscn" id="2_w1kxx"]
 
-[node name="Level2" type="Node2D"]
+[node name="Finallevel0" type="Node2D"]
 
 [node name="Level_template" parent="." instance=ExtResource("1_j1ro2")]
 position = Vector2(376, 223)
+
+[node name="enemy_Crawler" parent="." instance=ExtResource("2_w1kxx")]
+position = Vector2(1650, 1058)

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnnlnrm3v3dbc"]
+
+[ext_resource type="Texture2D" uid="uid://lewt1qggnfkg" path="res://enemys/resourses/unity.png" id="1_3cf30"]
+[ext_resource type="Script" path="res://enemys/scripts/unity.gd" id="1_tev6x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mxyo1"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3cf30")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx02d"]
+size = Vector2(65.5844, 47.9296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdf68"]
+size = Vector2(318, 455)
+
+[node name="enemy_Crawler" type="CharacterBody2D"]
+top_level = true
+script = ExtResource("1_tev6x")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(3.57578, 3.41414)
+sprite_frames = SubResource("SpriteFrames_mxyo1")
+animation = &"death"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+top_level = true
+position = Vector2(-15.5, 2.5)
+scale = Vector2(4.62, 9.66)
+shape = SubResource("RectangleShape2D_dx02d")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-18, -8.5)
+shape = SubResource("RectangleShape2D_hdf68")
+
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

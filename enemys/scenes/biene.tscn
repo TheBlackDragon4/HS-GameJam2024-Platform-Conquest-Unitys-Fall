@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5qd7tor8q3dh"]
+[gd_scene load_steps=11 format=3 uid="uid://dbethk82rxkyx"]
 
 [ext_resource type="Script" path="res://enemys/scripts/biene.gd" id="1_vpw3i"]
 [ext_resource type="Texture2D" uid="uid://23belsin2vvh" path="res://enemys/resourses/biene death.png" id="2_6445r"]
