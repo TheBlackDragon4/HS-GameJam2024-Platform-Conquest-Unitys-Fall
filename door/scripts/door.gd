@@ -25,3 +25,4 @@ func _on_animated_sprite_2d_animation_looped():
 		Global.level_completed[index_level_completed] = true
 	get_tree().change_scene_to_file(sceneChanger+".tscn")
 
+
