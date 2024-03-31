@@ -488,7 +488,7 @@ position = Vector2(166, 920)
 
 [node name="Door" parent="." instance=ExtResource("5_igcyi")]
 visible = false
-position = Vector2(1753, 943)
+position = Vector2(1750, 915)
 sceneChanger = "res://worlds/overworld/scenes/overworld"
 
 [node name="Pause_Menu" type="Node" parent="."]
