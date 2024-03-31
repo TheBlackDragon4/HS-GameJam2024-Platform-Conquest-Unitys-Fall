@@ -489,6 +489,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536
 position = Vector2(-252.389, -35.5994)
 
 [node name="Door" parent="." instance=ExtResource("5_igcyi")]
+visible = false
 position = Vector2(1750, 915)
 sceneChanger = "res://worlds/overworld/scenes/overworld"
 
