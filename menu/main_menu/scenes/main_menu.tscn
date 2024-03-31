@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvyjpx13fb6sk"]
+[gd_scene load_steps=7 format=3 uid="uid://dvyjpx13fb6sk"]
 
 [ext_resource type="Script" path="res://menu/main_menu/scripts/main_menu.gd" id="1_nlcvm"]
-[ext_resource type="Texture2D" uid="uid://ctrd8wwpv436j" path="res://assets/Menu/dummy/label_new_game.png" id="1_p0mp4"]
-[ext_resource type="Texture2D" uid="uid://ddatvvtm51u5n" path="res://assets/Menu/dummy/characters.png" id="1_tev30"]
-[ext_resource type="Texture2D" uid="uid://c57qudk04anqj" path="res://assets/Menu/dummy/label_options.png" id="2_0ayku"]
+[ext_resource type="Texture2D" uid="uid://drt0rge76ewjf" path="res://assets/Background/Yellow.png" id="2_177n5"]
+[ext_resource type="Texture2D" uid="uid://cksjgtthjqk15" path="res://assets/Menu/new/main_menu_play.png" id="3_co3ks"]
+[ext_resource type="Texture2D" uid="uid://bkysa1cb05u2f" path="res://assets/Menu/new/main_menu_credits.png" id="4_ju0yn"]
+[ext_resource type="Texture2D" uid="uid://cparuessmiwk2" path="res://assets/title.png" id="4_kr02u"]
+[ext_resource type="Texture2D" uid="uid://lb3e5ujdxouf" path="res://assets/Menu/new/main_menu_quit.png" id="5_oagnr"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_nlcvm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_177n5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_left = 5.0
@@ -29,15 +36,23 @@ layout_mode = 2
 
 [node name="New_Game_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_p0mp4")
+texture_normal = ExtResource("3_co3ks")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
+[node name="Credits_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_ju0yn")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
 [node name="Quit_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_0ayku")
+texture_normal = ExtResource("5_oagnr")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -49,7 +64,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
-texture = ExtResource("1_tev30")
+texture = ExtResource("4_kr02u")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/New_Game_Button" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits_Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
