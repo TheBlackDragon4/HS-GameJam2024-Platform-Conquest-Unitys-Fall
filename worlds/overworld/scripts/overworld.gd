@@ -14,7 +14,7 @@ extends Node2D
 @onready var border_top = $"Node/World Boarder/top_container/top"
 @onready var border_bottom = $"Node/World Boarder/bottom_container/bottom"
 
-const border_height_offset = 600
+const border_height_offset = 800
 
 
 # Called when the node enters the scene tree for the first time.
