@@ -357,88 +357,95 @@ func _on_craft_pressed():
 			countCraftItems = countCraftItems + 1
 	#if craft.items.count(InvItem) > 0:
 	if countCraftItems > 0:
-		var counter = 0    
-		#print("i am here")
-		for i in range(8):
-			if craft.items[i] != null:
-				for tex in range(5):
-					if craft.items[i].texture == textures[tex]:
-						#print(craft.items[i].texture, textures[tex])
-						counter = counter + tex+1
-					#print(textures. craft.items[i].texture == <CompressedTexture2D#-9223371998149737140>)
-				#var path = craft.items[i].texture
-				#var regex = path.match("stick(\\d+)")
-				#if regex:
-					#var number_after_stick = regex[1]
-					#counter = counter + number_after_stick
-					#print("Number after 'stick':", number_after_stick)
-					#craft.items[i] = null
-		print(counter)
-		match counter:
-			1:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-						break
-			2:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick2.png"), 25)
-						break
-			3:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 33)
-						break
-			4:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 35)
-						break
-			5:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 40)
-						break
-			6:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 45)
-						break
-			7:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 55)
-						break
-			8:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 65)
-						break
-			9:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick9.png"), 75)
-						break
-			_: 
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-						break
-			
-		for i in range(8):
+		#var counter = 0    
+		##print("i am here")
+		#for i in range(8):
+			#if craft.items[i] != null:
+				#for tex in range(5):
+					#if craft.items[i].texture == textures[tex]:
+						#counter = counter + tex+1
+		#print(counter)
+		#match counter:
+			#1:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
+						#break
+			#2:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick2.png"), 25)
+						#break
+			#3:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 33)
+						#break
+			#4:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 35)
+						#break
+			#5:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 40)
+						#break
+			#6:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 45)
+						#break
+			#7:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 55)
+						#break
+			#8:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 65)
+						#break
+			#9:
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick9.png"), 75)
+						#break
+			#_: 
+				#for array_item_index in range(1, inv.items.size()):
+					##print(array_item_index)
+					#if inv.items[array_item_index] == null: 
+						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
+						#break
+			#
+			#
+		var output = []
+		var input = []
+		for i in range(9):
+			if craft.items[i] == null:
+				input.append("")
+			else:
+				var txt = "icons/dummy/"
+				txt = txt.insert(txt.length(), craft.items[i].name)
+				txt = txt.insert(txt.length(), ".png")
+				print(txt)
+				input.append(txt)
+				
+		OS.execute("res://python scripts/sprite-fuser.py", input, output)
+		print(output)
+		for i in range(9):
 			craft.items[i] = null
-			
+		var preload_path = output[0]
+		craft.items[4] = InvItem.new(output[0], preload("res://icons/temp/weapon.png"), 20)
 		update_slots()
 
 
