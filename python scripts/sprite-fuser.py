@@ -15,12 +15,15 @@ images = ['', '', '',
           '', '', '',
           'name']
 # images = ['1.png', '1 - Kopie.png', '1.png', '2.png', '1.png', '2.png', '3.png', '3.png', '3.png']
-images = ["", "", "", "", "icons/dummy/Stick.png", "icons/dummy/stick.png", "", "", ""]
-images[4] = "icons\dummy\stick.png"
+# images = ["", "", "", "", "icons/dummy/Stick.png", "icons/dummy/stick.png", "", "", ""]
 
-# for i in range(1, len(sys.argv)):
-#     images[i-1] = sys.argv[i]
-    
+# images = ["", "", "icons/dummy/Stick.png", "", "", "", "", "", "icons/dummy/stick.png"]
+# images[4] = "icons\dummy\stick.png"
+
+for i in range(1, len(sys.argv)):
+    images[i-1] = sys.argv[i]
+
+print(sys.argv)    
 
 widths = []
 heights = []
