@@ -1,7 +1,7 @@
 extends Control
 
-@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
-@onready var craft: Inv = preload("res://Inventory/crafting/player_crafting_inventory.tres")
+@onready var inv: Inv = load("res://Inventory/player_inventory.tres")
+@onready var craft: Inv = load("res://Inventory/crafting/player_crafting_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 @onready var craft_slots: Array = $NinePatchCrafting/GridContainer.get_children()
 
@@ -40,21 +40,21 @@ var rows = 3
 var cols = 3
 
 # Liste der Texturen
-var textures = [preload("res://icons/dummy/stick.png"),
-preload("res://icons/dummy/stick2.png"),
-preload("res://icons/dummy/stick3.png"),
-preload("res://icons/dummy/stick5.png"),
-preload("res://icons/dummy/stick9.png")]
+#var textures = [load("res://icons/dummy/stick.png"),
+#load("res://icons/dummy/stick2.png"),
+#load("res://icons/dummy/stick3.png"),
+#load("res://icons/dummy/stick5.png"),
+#load("res://icons/dummy/stick9.png")]
 
 @onready var canvas_layer = get_parent().get_node("CanvasLayer")
 # ----
 
 
-func _ready():
+func _ready():	
 	for i in range(0, 11):
 		if inv.items[i] != null:
 			inv.items[i] = null
-	inv.items[0] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
+	inv.items[0] = InvItem.new("icons/dummy/stick.png", load("res://icons/dummy/stick.png"), 20)
 	Global.weapon = inv.items[0]
 	update_slots()
 	close()
@@ -65,15 +65,15 @@ func _ready():
 	
 	# ---- Sprite gen
 	# Texturen laden (Hier fügen Sie Ihre Texturen hinzu)
-	for i in range(rows * cols):
-		var texture = load("res://icons/dummy/stick.png")
-		textures.append(texture)
+	#for i in range(rows * cols):
+		#var texture = load("res://icons/dummy/stick.png")
+		#textures.append(texture)
 
 
 func update_slots():
-	for i in range(min(inv.items.size(), slots.size())):
+	for i in range(12):
 		slots[i].update(inv.items[i])
-	for i in range(min(craft.items.size(), craft_slots.size())):
+	for i in range(9):
 		craft_slots[i].update(craft.items[i])
 
 func _process(_delta):
@@ -351,102 +351,29 @@ func _on_equip_pressed():
 
 func _on_craft_pressed():
 	update_slots()
-	var countCraftItems = 0
-	for i in range(8):
-		if craft.items[i] != null:
-			countCraftItems = countCraftItems + 1
-	#if craft.items.count(InvItem) > 0:
-	if countCraftItems > 0:
-		#var counter = 0    
-		##print("i am here")
-		#for i in range(8):
-			#if craft.items[i] != null:
-				#for tex in range(5):
-					#if craft.items[i].texture == textures[tex]:
-						#counter = counter + tex+1
-		#print(counter)
-		#match counter:
-			#1:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-						#break
-			#2:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick2.png"), 25)
-						#break
-			#3:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 33)
-						#break
-			#4:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 35)
-						#break
-			#5:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 40)
-						#break
-			#6:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 45)
-						#break
-			#7:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 55)
-						#break
-			#8:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 65)
-						#break
-			#9:
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick9.png"), 75)
-						#break
-			#_: 
-				#for array_item_index in range(1, inv.items.size()):
-					##print(array_item_index)
-					#if inv.items[array_item_index] == null: 
-						#inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-						#break
-			#
-			#
-		var output = []
-		var input = []
-		for i in range(9):
-			if craft.items[i] == null:
-				input.append("")
-			else:
-				var txt = "icons/dummy/"
-				txt = txt.insert(txt.length(), craft.items[i].name)
-				txt = txt.insert(txt.length(), ".png")
-				print(txt)
-				input.append(txt)
-				
-		print(input)
-		OS.execute("python scripts/sprite-fuser.exe", input, output)
-		for i in range(9):
-			craft.items[i] = null
-		print("output", output)
-		craft.items[4] = InvItem.new(output[0], preload("res://icons/temp/weapon.png"), 20)
-		update_slots()
+	var output = []
+	var input = []
+	for i in range(9):
+		if craft.items[i] == null:
+			input.append("")
+		else:
+			var txt = ""
+			#var txt = "icons/dummy/"
+			txt = txt.insert(txt.length(), craft.items[i].name)
+			#txt = txt.insert(txt.length(), ".png")
+			input.append(txt)
+			
+	print("input: ", input)
+	OS.execute("python scripts/sprite-fuser.exe", input, output)
+	print("output: ", output)
+	for i in range(9):
+		craft.items[i] = null
+	OS.execute("python scripts/sprite-fuser.exe", input, output)
+	var splitted_output = output[0].rsplit("\r\n", true)
+	print(splitted_output)
+	craft.items[4] = InvItem.new(splitted_output[0], load(splitted_output[0]), 20)
+	
+	update_slots()
 
 
 func _on_remove_pressed():

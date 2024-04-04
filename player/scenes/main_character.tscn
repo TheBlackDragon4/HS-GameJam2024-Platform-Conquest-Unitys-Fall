@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cwgfviktcgpd5" path="res://assets/Main Characters/Pink Man/Idle (32x32).png" id="5_n14hl"]
 [ext_resource type="AudioStream" uid="uid://bqaru1vhf7d0g" path="res://sounds/hurt_c_08-102842.mp3" id="6_7e4d4"]
 [ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
-[ext_resource type="Texture2D" uid="uid://s1o7g3n10rw0" path="res://icons/dummy_old/stick.png" id="6_jsq1h"]
+[ext_resource type="Texture2D" uid="uid://s1o7g3n10rw0" path="res://icons/dummy/stick.png" id="6_jsq1h"]
 [ext_resource type="Texture2D" uid="uid://82bhdmtp50rw" path="res://assets/Main Characters/Pink Man/Jump (32x32) (2).png" id="7_jsi7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evajd"]

@@ -1,1 +1,1 @@
-python scripts\sprite-fuser.exeicons/dummy/stick.pngicons/dummy/stick.pngicons/dummy/Stick.pngicons/dummy/stick.png
+python scripts\sprite-fuser.exeicons/temp/0stick12345678.pngicons/dummy/stick.png

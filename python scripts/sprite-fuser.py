@@ -3,19 +3,16 @@ from PIL import Image  # Bibliothek zum be-/verarbeiten von Bilder
 import sys               
 
 # Opening a file
-# file1 = open('log.txt', 'w')
-# file1.writelines(sys.argv)
-# # Closing file
-# file1.close()
-
-print(sys.argv)
+file1 = open('log.txt', 'w')
+file1.writelines(sys.argv)
+# Closing file
+file1.close()
 
 images = ['', '', '',
           '', '', '',
-          '', '', '',
-          'name']
+          '', '', '']
 # images = ['1.png', '1 - Kopie.png', '1.png', '2.png', '1.png', '2.png', '3.png', '3.png', '3.png']
-# images = ["", "", "", "", "icons/dummy/Stick.png", "icons/dummy/stick.png", "", "", ""]
+# images = ["", "", "icons/dummy/Stick.png", "", "", "", "", "", ""]
 
 # images = ["", "", "icons/dummy/Stick.png", "", "", "", "", "", "icons/dummy/stick.png"]
 # images[4] = "icons\dummy\stick.png"
@@ -23,7 +20,7 @@ images = ['', '', '',
 for i in range(1, len(sys.argv)):
     images[i-1] = sys.argv[i]
 
-print(sys.argv)    
+# print(sys.argv)    
 
 widths = []
 heights = []
@@ -81,12 +78,19 @@ for i in range(9):
 
 # output_name = images[9]
 # if images[9] == 'name':
-#     output_name = ""
-#     for i in range(9):
-#         im = images[i].replace(".png", "")
-#         output_name = f"{output_name}{im}"
+output_name = ""
+for i in range(9):
+    im = images[i].replace(".png", "")
+    im = im.replace("\\", "")
+    im = im.replace("/", "")
+    im = im.replace("dummy", "")
+    im = im.replace("temp", "")
+    im = im.replace("icons", "")
+    output_name = f"{output_name}{i}{im}"
 
 # print(output_name, images[9])
-# new_im.save(f"res://icons/temp/{output_name}.png")
-new_im.save(f"icons/temp/weapon.png")
+print(f"icons/temp/{output_name}.png")
+print(output_name)
+new_im.save(f"icons/temp/{output_name}.png")
+# new_im.save(f"icons/dummy/weapon.png")
 # print("weapon")

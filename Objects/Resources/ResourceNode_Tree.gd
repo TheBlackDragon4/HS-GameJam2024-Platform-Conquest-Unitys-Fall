@@ -9,7 +9,7 @@ var isChopped = false
 
 
 func _ready():
-	item = InvItem.new("stick", preload("res://icons/dummy/stick.png"))
+	item = InvItem.new("icons/dummy/stick.png", load("res://icons/dummy/stick.png"))
 
 func chop_tree():
 	isChopped = true

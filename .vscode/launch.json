@@ -10,7 +10,17 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["1.png", "2.png", "3.png"]
+            "args": [
+                "",
+                "",
+                "",
+                "",
+                "icons/dummy/stick.png",
+                "icons/dummy/stick.png",
+                "",
+                "",
+                ""
+            ]
         }
     ]
 }
