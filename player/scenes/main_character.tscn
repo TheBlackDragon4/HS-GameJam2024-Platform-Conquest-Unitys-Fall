@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=25 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
 [ext_resource type="Texture2D" uid="uid://wegah4qx6m3q" path="res://player/resources/skin/Idle (128x128).png" id="2_55xcw"]
 [ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
 [ext_resource type="Texture2D" uid="uid://c0mj6g34vr5o1" path="res://assets/Main Characters/Pink Man/Fall (32x32).png" id="4_d138k"]
+[ext_resource type="Texture2D" uid="uid://s1o7g3n10rw0" path="res://icons/dummy/Stick.png" id="5_lylko"]
 [ext_resource type="AudioStream" uid="uid://bqaru1vhf7d0g" path="res://sounds/hurt_c_08-102842.mp3" id="6_7e4d4"]
 [ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
 
@@ -134,7 +135,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40s1l"]
-height = 53.45
+height = 33.6559
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
@@ -165,16 +166,17 @@ editor_draw_limits = true
 
 [node name="EquipSprite" type="Sprite2D" parent="HandEquip"]
 texture_filter = 1
-position = Vector2(87, -10)
+position = Vector2(110, -35)
 rotation = 1.26715
 scale = Vector2(2.5, 3.684)
+texture = ExtResource("5_lylko")
 
 [node name="Area2D" type="Area2D" parent="HandEquip/EquipSprite"]
 position = Vector2(3.78653, -14.5556)
 script = ExtResource("6_ccwyp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandEquip/EquipSprite/Area2D"]
-position = Vector2(0.748096, 13.813)
+position = Vector2(-4.50414, 16.1098)
 rotation = -1.1973
 scale = Vector2(-1.73043, 1.25575)
 shape = SubResource("CapsuleShape2D_40s1l")

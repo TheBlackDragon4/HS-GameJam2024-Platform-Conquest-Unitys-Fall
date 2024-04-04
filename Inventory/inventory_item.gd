@@ -15,3 +15,6 @@ func _init(p_name = "null", p_texture = null, p_damage = 0):
 	name = p_name
 	texture = p_texture
 	damage = p_damage
+
+func setTexture(p_texture = ""):
+	texture = load(p_texture)

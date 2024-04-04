@@ -440,11 +440,11 @@ func _on_craft_pressed():
 				print(txt)
 				input.append(txt)
 				
-		OS.execute("res://python scripts/sprite-fuser.py", input, output)
-		print(output)
+		print(input)
+		OS.execute("python scripts/sprite-fuser.exe", input, output)
 		for i in range(9):
 			craft.items[i] = null
-		var preload_path = output[0]
+		print("output", output)
 		craft.items[4] = InvItem.new(output[0], preload("res://icons/temp/weapon.png"), 20)
 		update_slots()
 

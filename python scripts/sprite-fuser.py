@@ -2,19 +2,29 @@ import png
 from PIL import Image  # Bibliothek zum be-/verarbeiten von Bilder
 import sys               
 
+# Opening a file
+# file1 = open('log.txt', 'w')
+# file1.writelines(sys.argv)
+# # Closing file
+# file1.close()
 
-# images = ['1.png', '1 - Kopie.png', '1.png', '2.png', '1.png', '2.png', '3.png', '3.png', '3.png']
+print(sys.argv)
+
 images = ['', '', '',
           '', '', '',
           '', '', '',
           'name']
+# images = ['1.png', '1 - Kopie.png', '1.png', '2.png', '1.png', '2.png', '3.png', '3.png', '3.png']
+images = ["", "", "", "", "icons/dummy/Stick.png", "icons/dummy/stick.png", "", "", ""]
+images[4] = "icons\dummy\stick.png"
 
-for i in range(1, len(sys.argv)):
-    images[i-1] = sys.argv[i]
+# for i in range(1, len(sys.argv)):
+#     images[i-1] = sys.argv[i]
+    
 
 widths = []
 heights = []
-stand_pixelsize = 25
+stand_pixelsize = 40
 
 for i in range(9):
     w = stand_pixelsize
@@ -25,10 +35,10 @@ for i in range(9):
     heights.append(h)
 
 # print(w)
-width = max(widths[0], widths[3], widths[6]) + max(widths[1], widths[4], widths[7]) + max(widths[0], widths[3], widths[6])
+width = max(widths[0], widths[3], widths[6]) + max(widths[1], widths[4], widths[7]) + max(widths[2], widths[5], widths[8])
 height = width
 
-avg_widths = [max(widths[0], widths[3], widths[6]), max(widths[1], widths[4], widths[7]), max(widths[0], widths[3], widths[6])] 
+avg_widths = [max(widths[0], widths[3], widths[6]), max(widths[1], widths[4], widths[7]), max(widths[2], widths[5], widths[8])] 
 
 new_im = Image.new('RGBA', (width, height))
 
@@ -59,7 +69,12 @@ for i in range(9):
             y_offset = y_offset + avg_widths[0]
         if y_pre_offset == 2:
             y_offset = y_offset + avg_widths[0] + avg_widths[1]
+        # if images[i] == "":
+        #     copy_image("icons/temp/empty.png", x_offset*10000, y_offset*10000)
+        # else:
         copy_image(images[i], x_offset, y_offset)
+    # else:
+    #     copy_image(None, )
 
 # output_name = images[9]
 # if images[9] == 'name':
@@ -71,4 +86,4 @@ for i in range(9):
 # print(output_name, images[9])
 # new_im.save(f"res://icons/temp/{output_name}.png")
 new_im.save(f"icons/temp/weapon.png")
-print("weapon")
+# print("weapon")
