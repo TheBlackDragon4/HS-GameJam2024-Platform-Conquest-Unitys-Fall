@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 420.0
 const JUMP_VELOCITY = -800.0
 @onready var main_character_sprite = $Sprite2D
+@onready var main_character_sprite_2 = $Sprite2D2
+@onready var animationPlayer = $AnimationPlayer
+#@onready var animationMixer = 
 @onready var camera = $"Camera2D"
 
 @onready var weapon_sprite: Sprite2D = null
@@ -26,14 +29,21 @@ func _physics_process(delta):
 		
 	# Animations
 	if (velocity.x > 1 || velocity.x < -1):
-		main_character_sprite.animation = "running"
+		main_character_sprite_2.visible = true
+		main_character_sprite.visible = false
+		main_character_sprite_2.animation = "running"
+		animationPlayer.play("running")
 	else:
-		main_character_sprite.animation = "default"
+		main_character_sprite.visible = true
+		main_character_sprite_2.visible = false
+		animationPlayer.play("default")
 	
 	# Add the gravity.
 	if not is_on_floor():
+		main_character_sprite.visible = true
+		main_character_sprite_2.visible = false
 		velocity.y += gravity * delta
-		main_character_sprite.animation = "jumping"
+		animationPlayer.play("jumping")
 
 	# If opened Inventory
 	if isFreezed:
@@ -59,6 +69,7 @@ func _physics_process(delta):
 	if(!Global.game_freeze):
 		move_and_slide()
 		var isLeft = velocity.x < 0
+		main_character_sprite_2.flip_h = isLeft
 		main_character_sprite.flip_h = isLeft
 
 func _process(_delta):
