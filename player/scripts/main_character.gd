@@ -28,7 +28,7 @@ func _physics_process(delta):
 		return 
 		
 	# Animations
-	if (velocity.x > 1 || velocity.x < -1):
+	if (velocity.x > 1 || velocity.x < -1) and is_on_floor():
 		animationPlayerRunning.play("running")
 	else:
 		animationPlayer.play("default")
