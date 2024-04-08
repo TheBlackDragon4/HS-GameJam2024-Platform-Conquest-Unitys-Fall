@@ -654,12 +654,16 @@ theme_override_constants/margin_top = 60
 
 [node name="Node" type="Node" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Node"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Node"]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.645
+
+[node name="TextureRect" type="TextureRect" parent="Node/ParallaxBackground"]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -320.0
+offset_left = -1222.0
 offset_top = -1089.0
 offset_right = 10624.0
 offset_bottom = 8.0
@@ -667,7 +671,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ca51d")
 stretch_mode = 1
-metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="Node"]
 texture_filter = 1
