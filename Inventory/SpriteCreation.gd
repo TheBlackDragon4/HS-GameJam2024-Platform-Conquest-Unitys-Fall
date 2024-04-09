@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
 @onready var equipSprite = get_parent().getEquipSprite()
 
 # Anzahl der Texturen in horizontaler und vertikaler Richtung

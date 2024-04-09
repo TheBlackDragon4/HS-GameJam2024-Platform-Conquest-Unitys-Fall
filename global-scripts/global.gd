@@ -6,7 +6,9 @@ var easter_eggs_found = 0
 
 var crawl_enemy_health = 100
 
-var weapon: InvItem = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
+var weapon: InvItem = InvItem.new("stick", preload("res://icons/dummy/stick.png"), 20)
+var inv: Inv = load("res://Inventory/player_inventory.tres")
+var craft: Inv = load("res://Inventory/crafting/player_crafting_inventory.tres")
 
 var player_base_damage = weapon.damage
 

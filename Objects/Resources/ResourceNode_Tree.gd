@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
+#@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
 
 var player_in_area = false
 var isChopped = false

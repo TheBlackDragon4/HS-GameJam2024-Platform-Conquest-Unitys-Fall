@@ -3,10 +3,10 @@ from PIL import Image  # Bibliothek zum be-/verarbeiten von Bilder
 import sys               
 
 # Opening a file
-file1 = open('log.txt', 'w')
-file1.writelines(sys.argv)
-# Closing file
-file1.close()
+# file1 = open('log.txt', 'w')
+# file1.writelines(sys.argv)
+# # Closing file
+# file1.close()
 
 images = ['', '', '',
           '', '', '',
@@ -87,6 +87,8 @@ for i in range(9):
     im = im.replace("temp", "")
     im = im.replace("icons", "")
     output_name = f"{output_name}{i}{im}"
+
+output_name.lower()
 
 # print(output_name, images[9])
 print(f"icons/temp/{output_name}.png")

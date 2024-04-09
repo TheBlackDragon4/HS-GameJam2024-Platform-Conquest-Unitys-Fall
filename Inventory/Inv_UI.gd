@@ -1,7 +1,5 @@
 extends Control
 
-@onready var inv: Inv = load("res://Inventory/player_inventory.tres")
-@onready var craft: Inv = load("res://Inventory/crafting/player_crafting_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 @onready var craft_slots: Array = $NinePatchCrafting/GridContainer.get_children()
 
@@ -52,10 +50,10 @@ var cols = 3
 
 func _ready():	
 	for i in range(0, 11):
-		if inv.items[i] != null:
-			inv.items[i] = null
-	inv.items[0] = InvItem.new("icons/dummy/stick.png", load("res://icons/dummy/stick.png"), 20)
-	Global.weapon = inv.items[0]
+		if Global.inv.items[i] != null:
+			Global.inv.items[i] = null
+	Global.inv.items[0] = InvItem.new("icons/dummy/stick.png", load("res://icons/dummy/stick.png"), 20)
+	Global.weapon = Global.inv.items[0]
 	update_slots()
 	close()
 	for slot in $NinePatchRect/GridContainer.get_children():
@@ -72,9 +70,9 @@ func _ready():
 
 func update_slots():
 	for i in range(12):
-		slots[i].update(inv.items[i])
+		slots[i].update(Global.inv.items[i])
 	for i in range(9):
-		craft_slots[i].update(craft.items[i])
+		craft_slots[i].update(Global.craft.items[i])
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Inventory") and dialog.visible:
@@ -300,7 +298,7 @@ func _input(_event):
 			selectedSlotCrafting.get_node("Sprite2D").animation = "selected"
 		
 		if Input.is_action_just_pressed("delete_item"):
-			if inv.items[currentPos] != null and currentPos != 0:
+			if Global.inv.items[currentPos] != null and currentPos != 0:
 				dialog.visible = true
 		if Input.is_action_just_pressed("open_door"):
 			if selectMode == "craft":
@@ -317,10 +315,10 @@ func _input(_event):
 			currentPos = -1
 			selectMode = "craft"
 			selectedSlotCrafting = tempSlot
-			if craft.items[oldCraftingPos] != null:
-				usedCraftItem = craft.items[oldCraftingPos]
-			craft.items[oldCraftingPos] = inv.items[oldCurrentPos]
-			inv.items[oldCurrentPos] = usedCraftItem
+			if Global.craft.items[oldCraftingPos] != null:
+				usedCraftItem = Global.craft.items[oldCraftingPos]
+			Global.craft.items[oldCraftingPos] = Global.inv.items[oldCurrentPos]
+			Global.inv.items[oldCurrentPos] = usedCraftItem
 			update_slots()
 
 func close():
@@ -339,49 +337,55 @@ func open():
 		selectedSlot.get_node("Sprite2D").animation = "selected"
 
 func _on_delete_pressed():
-	inv.items[currentPos] = null
+	Global.inv.items[currentPos] = null
 	update_slots()
 
 func _on_equip_pressed():
-	var prevEquipedItem = inv.items[0]
-	inv.items[0] = inv.items[currentPos]
-	inv.items[currentPos] = prevEquipedItem
-	Global.weapon = inv.items[0]
+	var prevEquipedItem = Global.inv.items[0]
+	Global.inv.items[0] = Global.inv.items[currentPos]
+	Global.inv.items[currentPos] = prevEquipedItem
+	Global.weapon = Global.inv.items[0]
 	update_slots()
 
 func _on_craft_pressed():
+	var flag = false
+	for i in range(len(Global.craft.items)):
+		if Global.craft.items[i] != null:
+			flag = true
+			break
 	update_slots()
-	var output = []
-	var input = []
-	for i in range(9):
-		if craft.items[i] == null:
-			input.append("")
-		else:
-			var txt = ""
-			#var txt = "icons/dummy/"
-			txt = txt.insert(txt.length(), craft.items[i].name)
-			#txt = txt.insert(txt.length(), ".png")
-			input.append(txt)
-			
-	print("input: ", input)
-	OS.execute("python scripts/sprite-fuser.exe", input, output)
-	print("output: ", output)
-	for i in range(9):
-		craft.items[i] = null
-	OS.execute("python scripts/sprite-fuser.exe", input, output)
-	var splitted_output = output[0].rsplit("\r\n", true)
-	print(splitted_output)
-	craft.items[4] = InvItem.new(splitted_output[0], load(splitted_output[0]), 20)
+	if flag:
+		var output = []
+		var input = []
+		for i in range(9):
+			if Global.craft.items[i] == null:
+				input.append("")
+			else:
+				var txt = ""
+				#var txt = "icons/dummy/"
+				txt = txt.insert(txt.length(), Global.craft.items[i].name)
+				#txt = txt.insert(txt.length(), ".png")
+				input.append(txt)
+				
+		print("input: ", input)
+		OS.execute("python scripts/sprite-fuser.exe", input, output)
+		print("output: ", output)
+		for i in range(9):
+			Global.craft.items[i] = null
+		OS.execute("python scripts/sprite-fuser.exe", input, output)
+		var splitted_output = output[0].rsplit("\r\n", true)
+		print(splitted_output)
+		ResourceLoader.load(splitted_output[0])
+		Global.craft.items[4] = InvItem.new(splitted_output[0].to_lower(), load(splitted_output[0].to_lower()), 20)
+		update_slots()
+
 	
-	update_slots()
-
-
 func _on_remove_pressed():
 	selectedSlotCrafting.get_node("Sprite2D").animation = "default"
-	for array_item_index in range(1, inv.items.size()):
-		if inv.items[array_item_index] == null: 
-			inv.items[array_item_index] = craft.items[craftingPos]
-			craft.items[craftingPos] = null
+	for array_item_index in range(1, Global.inv.items.size()):
+		if Global.inv.items[array_item_index] == null: 
+			Global.inv.items[array_item_index] = Global.craft.items[craftingPos]
+			Global.craft.items[craftingPos] = null
 			update_slots()
 			break
 
