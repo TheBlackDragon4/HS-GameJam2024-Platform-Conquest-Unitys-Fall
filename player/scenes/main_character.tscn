@@ -1,141 +1,12 @@
-[gd_scene load_steps=35 format=3 uid="uid://cfhp8gk08xd12"]
+[gd_scene load_steps=14 format=3 uid="uid://cfhp8gk08xd12"]
 
 [ext_resource type="Script" path="res://player/scripts/main_character.gd" id="1_b3sao"]
-[ext_resource type="Texture2D" uid="uid://wegah4qx6m3q" path="res://player/resources/skin/Idle (128x128).png" id="2_55xcw"]
-[ext_resource type="Texture2D" uid="uid://gljkspypmc8v" path="res://assets/Main Characters/Pink Man/Run (32x32).png" id="4_cfgt1"]
-[ext_resource type="Texture2D" uid="uid://c0mj6g34vr5o1" path="res://assets/Main Characters/Pink Man/Fall (32x32).png" id="4_d138k"]
-[ext_resource type="Texture2D" uid="uid://2c046ronxja5" path="res://assets/Main Characters/Pink Man/Run (32x32) V2.png" id="5_2ng4x"]
 [ext_resource type="Texture2D" uid="uid://cwgfviktcgpd5" path="res://assets/Main Characters/Pink Man/Idle (32x32).png" id="5_n14hl"]
 [ext_resource type="AudioStream" uid="uid://bqaru1vhf7d0g" path="res://sounds/hurt_c_08-102842.mp3" id="6_7e4d4"]
 [ext_resource type="Script" path="res://player/scripts/main_character_combat.gd" id="6_ccwyp"]
 [ext_resource type="Texture2D" uid="uid://s1o7g3n10rw0" path="res://icons/dummy/stick.png" id="6_jsq1h"]
 [ext_resource type="Texture2D" uid="uid://82bhdmtp50rw" path="res://assets/Main Characters/Pink Man/Jump (32x32) (2).png" id="7_jsi7h"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_evajd"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5r67"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdtwp"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hyoai"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e37te"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oo11x"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hle3o"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vphdq"]
-atlas = ExtResource("2_55xcw")
-region = Rect2(1280, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bw236"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cy5d1"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pbxi8"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wukvv"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y5eno"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmir1"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlgwk"]
-atlas = ExtResource("4_cfgt1")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7yfj3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_evajd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5r67")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jdtwp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hyoai")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e37te")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oo11x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hle3o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vphdq")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_d138k")
-}],
-"loop": true,
-"name": &"jumping",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bw236")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cy5d1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pbxi8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wukvv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y5eno")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dmir1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xlgwk")
-}],
-"loop": true,
-"name": &"running",
-"speed": 14.0
-}]
+[ext_resource type="Texture2D" uid="uid://c53cp08veumxn" path="res://assets/Main Characters/Pink Man/Run (32x32) V3.png" id="8_04q22"]
 
 [sub_resource type="Animation" id="Animation_62dyh"]
 length = 0.001
@@ -363,80 +234,9 @@ tracks/5/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg7tu"]
-_data = {
-"RESET": SubResource("Animation_62dyh"),
-"default": SubResource("Animation_6h26v"),
-"jumping": SubResource("Animation_r64ri")
-}
-
-[sub_resource type="Animation" id="Animation_md1lx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HandEquip/EquipSprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(30, -2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HandEquip/EquipSprite:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1.01517]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_2ng4x")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_tm0gt"]
+[sub_resource type="Animation" id="Animation_swta0"]
 resource_name = "running"
-length = 1.00001
-step = 0.142857
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -447,31 +247,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [12]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("5_2ng4x")]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("Sprite2D:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429, 0.714286, 0.857143),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
+"values": [ExtResource("8_04q22")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -480,10 +280,10 @@ tracks/3/path = NodePath("HandEquip/EquipSprite:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429, 0.714286, 0.857143),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(21, 3), Vector2(22, 3), Vector2(29, -2), Vector2(-1, 16), Vector2(-24, 16), Vector2(3, 19), Vector2(31, -7)]
+"values": [Vector2(-19, 10), Vector2(17, 7), Vector2(19, -2), Vector2(23, -6), Vector2(-5, 17), Vector2(-31, 16), Vector2(-6, 17), Vector2(24, -4), Vector2(16, 6), Vector2(19, 2), Vector2(-5, 15)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -492,16 +292,18 @@ tracks/4/path = NodePath("HandEquip/EquipSprite:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429, 0.714286, 0.857143),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1.00485, 1.14173, 0.913352, 1.69604, 1.92321, 1.62111, 0.763137]
+"values": [1.26715, 1.23281, 0.930163, 0.689428, 1.73777, 2.03348, 1.65491, 0.829275, 1.1163, 1.00206, 1.62873]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sceph"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tg7tu"]
 _data = {
-"RESET": SubResource("Animation_md1lx"),
-"running": SubResource("Animation_tm0gt")
+"RESET": SubResource("Animation_62dyh"),
+"default": SubResource("Animation_6h26v"),
+"jumping": SubResource("Animation_r64ri"),
+"running": SubResource("Animation_swta0")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1qup"]
@@ -513,30 +315,16 @@ position = Vector2(0, -1)
 collision_mask = 3
 script = ExtResource("1_b3sao")
 
-[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
-visible = false
-texture_filter = 1
-position = Vector2(0.72, -8.1)
-scale = Vector2(1.48, 1.48)
-sprite_frames = SubResource("SpriteFrames_7yfj3")
-animation = &"running"
-autoplay = "default"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0.720001, -8.10001)
 scale = Vector2(1.48, 1.48)
-texture = ExtResource("5_2ng4x")
-hframes = 7
+texture = ExtResource("5_n14hl")
+hframes = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tg7tu")
-}
-
-[node name="AnimationPlayerRunning" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_sceph")
 }
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -555,8 +343,8 @@ editor_draw_limits = true
 
 [node name="EquipSprite" type="Sprite2D" parent="HandEquip"]
 texture_filter = 1
-position = Vector2(30, -2)
-rotation = 1.01517
+position = Vector2(-19, 10)
+rotation = 1.26715
 texture = ExtResource("6_jsq1h")
 
 [node name="Area2D" type="Area2D" parent="HandEquip/EquipSprite"]

@@ -4,7 +4,6 @@ const SPEED = 420.0
 const JUMP_VELOCITY = -800.0
 @onready var main_character_sprite = $Sprite2D
 @onready var animationPlayer = $AnimationPlayer
-@onready var animationPlayerRunning = $AnimationPlayerRunning
 #@onready var animationMixer = 
 @onready var camera = $"Camera2D"
 
@@ -29,7 +28,7 @@ func _physics_process(delta):
 		
 	# Animations
 	if (velocity.x > 1 || velocity.x < -1) and is_on_floor():
-		animationPlayerRunning.play("running")
+		animationPlayer.play("running")
 	else:
 		animationPlayer.play("default")
 	
