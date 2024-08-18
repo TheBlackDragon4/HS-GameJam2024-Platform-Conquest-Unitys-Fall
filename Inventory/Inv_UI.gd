@@ -359,7 +359,7 @@ func _on_craft_pressed():
 		var input = []
 		for i in range(9):
 			if Global.craft.items[i] == null:
-				input.append("")
+				input.append("empty")
 			else:
 				var txt = ""
 				#var txt = "icons/dummy/"
@@ -375,8 +375,15 @@ func _on_craft_pressed():
 		OS.execute("python scripts/sprite-fuser.exe", input, output)
 		var splitted_output = output[0].rsplit("\r\n", true)
 		print(splitted_output)
-		ResourceLoader.load(splitted_output[0])
-		Global.craft.items[4] = InvItem.new(splitted_output[0].to_lower(), load(splitted_output[0].to_lower()), 20)
+		OS.delay_msec(100)
+		#ResourceLoader.load(splitted_output[0])
+		var loaded_flag = false
+		while !loaded_flag:
+			Global.craft.items[4] = InvItem.new(splitted_output[0].to_lower(), load(splitted_output[0].to_lower()), 20)
+			if Global.craft.items[4].texture != null:
+				loaded_flag = true
+			else:
+				OS.delay_msec(300)
 		update_slots()
 
 	
@@ -402,5 +409,13 @@ func _on_insert_pressed():
 	selectedSlot.get_node("Sprite2D").animation = "selected"
 	update_slots()
 
-	
-
+#func importImage(path):    
+	#var texFile = File.new()
+	#texFile.open(path,File.READ)
+	#var bytes = texFile.get_buffer(texFile.get_len())
+	#var img = Image.new()
+	#var _data = img.load_png_from_buffer(bytes)
+	#var imgtex = ImageTexture.new()
+	#imgtex.create_from_image(img)
+	#texFile.close()
+	#return imgtex

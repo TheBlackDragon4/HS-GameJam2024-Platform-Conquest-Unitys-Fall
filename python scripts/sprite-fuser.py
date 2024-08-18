@@ -29,8 +29,11 @@ stand_pixelsize = 40
 for i in range(9):
     w = stand_pixelsize
     h = stand_pixelsize
-    if images[i] != '':
-        w, h, p, m = png.Reader(filename=images[i]).read_flat()
+    if images[i] != "empty":
+        w = stand_pixelsize
+        h = stand_pixelsize
+        if images[i] != '':
+            w, h, p, m = png.Reader(filename=images[i]).read_flat()
     widths.append(w)
     heights.append(h)
 
@@ -48,7 +51,7 @@ def copy_image(image, offset_x=0, offset_y=0):
         new_im.paste(im, (i + offset_x, offset_y))
 
 for i in range(9):
-    if images[i] != '':
+    if images[i] != 'empty':
         y_offset = 0
         x_offset = 0
         if widths[i] != avg_widths[int((i)/3)]:
