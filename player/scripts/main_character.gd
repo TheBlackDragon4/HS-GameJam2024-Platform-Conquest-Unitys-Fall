@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 420.0
 const JUMP_VELOCITY = -800.0
 @onready var main_character_sprite = $Sprite2D
+@onready var animationPlayer = $AnimationPlayer
+#@onready var animationMixer = 
 @onready var camera = $"Camera2D"
 
 @onready var weapon_sprite: Sprite2D = null
@@ -25,15 +27,15 @@ func _physics_process(delta):
 		return 
 		
 	# Animations
-	if (velocity.x > 1 || velocity.x < -1):
-		main_character_sprite.animation = "running"
+	if (velocity.x > 1 || velocity.x < -1) and is_on_floor():
+		animationPlayer.play("running")
 	else:
-		main_character_sprite.animation = "default"
+		animationPlayer.play("default")
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		main_character_sprite.animation = "jumping"
+		animationPlayer.play("jumping")
 
 	# If opened Inventory
 	if isFreezed:

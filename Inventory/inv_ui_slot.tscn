@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpj7yi1pom1hq"]
 
-[ext_resource type="Texture2D" uid="uid://cs6kg7wisdmps" path="res://icons/dummy_old/Inventory_Tile.png" id="1_0o1gy"]
+[ext_resource type="Texture2D" uid="uid://cs6kg7wisdmps" path="res://icons/dummy/Inventory_Tile.png" id="1_0o1gy"]
 [ext_resource type="Script" path="res://Inventory/inv_ui_slot.gd" id="1_gx4ym"]
-[ext_resource type="Texture2D" uid="uid://cl7kte2mq85kc" path="res://icons/dummy_old/Selected_Inventory_Tile.png" id="3_s6ej8"]
+[ext_resource type="Texture2D" uid="uid://cl7kte2mq85kc" path="res://icons/dummy/Selected_Inventory_Tile.png" id="3_s6ej8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k2ixe"]
 animations = [{

@@ -1,7 +1,5 @@
 extends Control
 
-@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
-@onready var craft: Inv = preload("res://Inventory/crafting/player_crafting_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 @onready var craft_slots: Array = $NinePatchCrafting/GridContainer.get_children()
 
@@ -40,22 +38,22 @@ var rows = 3
 var cols = 3
 
 # Liste der Texturen
-var textures = [preload("res://icons/dummy/stick.png"),
-preload("res://icons/dummy/stick2.png"),
-preload("res://icons/dummy/stick3.png"),
-preload("res://icons/dummy/stick5.png"),
-preload("res://icons/dummy/stick9.png")]
+#var textures = [load("res://icons/dummy/stick.png"),
+#load("res://icons/dummy/stick2.png"),
+#load("res://icons/dummy/stick3.png"),
+#load("res://icons/dummy/stick5.png"),
+#load("res://icons/dummy/stick9.png")]
 
 @onready var canvas_layer = get_parent().get_node("CanvasLayer")
 # ----
 
 
-func _ready():
+func _ready():	
 	for i in range(0, 11):
-		if inv.items[i] != null:
-			inv.items[i] = null
-	inv.items[0] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-	Global.weapon = inv.items[0]
+		if Global.inv.items[i] != null:
+			Global.inv.items[i] = null
+	Global.inv.items[0] = InvItem.new("icons/dummy/stick.png", load("res://icons/dummy/stick.png"), 20)
+	Global.weapon = Global.inv.items[0]
 	update_slots()
 	close()
 	for slot in $NinePatchRect/GridContainer.get_children():
@@ -65,16 +63,16 @@ func _ready():
 	
 	# ---- Sprite gen
 	# Texturen laden (Hier fügen Sie Ihre Texturen hinzu)
-	for i in range(rows * cols):
-		var texture = load("res://icons/dummy/stick.png")
-		textures.append(texture)
+	#for i in range(rows * cols):
+		#var texture = load("res://icons/dummy/stick.png")
+		#textures.append(texture)
 
 
 func update_slots():
-	for i in range(min(inv.items.size(), slots.size())):
-		slots[i].update(inv.items[i])
-	for i in range(min(craft.items.size(), craft_slots.size())):
-		craft_slots[i].update(craft.items[i])
+	for i in range(12):
+		slots[i].update(Global.inv.items[i])
+	for i in range(9):
+		craft_slots[i].update(Global.craft.items[i])
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Inventory") and dialog.visible:
@@ -300,7 +298,7 @@ func _input(_event):
 			selectedSlotCrafting.get_node("Sprite2D").animation = "selected"
 		
 		if Input.is_action_just_pressed("delete_item"):
-			if inv.items[currentPos] != null and currentPos != 0:
+			if Global.inv.items[currentPos] != null and currentPos != 0:
 				dialog.visible = true
 		if Input.is_action_just_pressed("open_door"):
 			if selectMode == "craft":
@@ -317,10 +315,10 @@ func _input(_event):
 			currentPos = -1
 			selectMode = "craft"
 			selectedSlotCrafting = tempSlot
-			if craft.items[oldCraftingPos] != null:
-				usedCraftItem = craft.items[oldCraftingPos]
-			craft.items[oldCraftingPos] = inv.items[oldCurrentPos]
-			inv.items[oldCurrentPos] = usedCraftItem
+			if Global.craft.items[oldCraftingPos] != null:
+				usedCraftItem = Global.craft.items[oldCraftingPos]
+			Global.craft.items[oldCraftingPos] = Global.inv.items[oldCurrentPos]
+			Global.inv.items[oldCurrentPos] = usedCraftItem
 			update_slots()
 
 func close():
@@ -339,115 +337,62 @@ func open():
 		selectedSlot.get_node("Sprite2D").animation = "selected"
 
 func _on_delete_pressed():
-	inv.items[currentPos] = null
+	Global.inv.items[currentPos] = null
 	update_slots()
 
 func _on_equip_pressed():
-	var prevEquipedItem = inv.items[0]
-	inv.items[0] = inv.items[currentPos]
-	inv.items[currentPos] = prevEquipedItem
-	Global.weapon = inv.items[0]
+	var prevEquipedItem = Global.inv.items[0]
+	Global.inv.items[0] = Global.inv.items[currentPos]
+	Global.inv.items[currentPos] = prevEquipedItem
+	Global.weapon = Global.inv.items[0]
 	update_slots()
 
 func _on_craft_pressed():
+	var flag = false
+	for i in range(len(Global.craft.items)):
+		if Global.craft.items[i] != null:
+			flag = true
+			break
 	update_slots()
-	var countCraftItems = 0
-	for i in range(8):
-		if craft.items[i] != null:
-			countCraftItems = countCraftItems + 1
-	#if craft.items.count(InvItem) > 0:
-	if countCraftItems > 0:
-		var counter = 0    
-		#print("i am here")
-		for i in range(8):
-			if craft.items[i] != null:
-				for tex in range(5):
-					if craft.items[i].texture == textures[tex]:
-						#print(craft.items[i].texture, textures[tex])
-						counter = counter + tex+1
-					#print(textures. craft.items[i].texture == <CompressedTexture2D#-9223371998149737140>)
-				#var path = craft.items[i].texture
-				#var regex = path.match("stick(\\d+)")
-				#if regex:
-					#var number_after_stick = regex[1]
-					#counter = counter + number_after_stick
-					#print("Number after 'stick':", number_after_stick)
-					#craft.items[i] = null
-		print(counter)
-		match counter:
-			1:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-						break
-			2:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick2.png"), 25)
-						break
-			3:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 33)
-						break
-			4:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick3.png"), 35)
-						break
-			5:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 40)
-						break
-			6:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 45)
-						break
-			7:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 55)
-						break
-			8:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick5.png"), 65)
-						break
-			9:
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick9.png"), 75)
-						break
-			_: 
-				for array_item_index in range(1, inv.items.size()):
-					#print(array_item_index)
-					if inv.items[array_item_index] == null: 
-						inv.items[array_item_index] = InvItem.new("Stick", preload("res://icons/dummy/stick.png"), 20)
-						break
-			
-		for i in range(8):
-			craft.items[i] = null
-			
+	if flag:
+		var output = []
+		var input = []
+		for i in range(9):
+			if Global.craft.items[i] == null:
+				input.append("empty")
+			else:
+				var txt = ""
+				#var txt = "icons/dummy/"
+				txt = txt.insert(txt.length(), Global.craft.items[i].name)
+				#txt = txt.insert(txt.length(), ".png")
+				input.append(txt)
+				
+		print("input: ", input)
+		OS.execute("python scripts/sprite-fuser.exe", input, output)
+		print("output: ", output)
+		for i in range(9):
+			Global.craft.items[i] = null
+		OS.execute("python scripts/sprite-fuser.exe", input, output)
+		var splitted_output = output[0].rsplit("\r\n", true)
+		print(splitted_output)
+		OS.delay_msec(100)
+		#ResourceLoader.load(splitted_output[0])
+		var loaded_flag = false
+		while !loaded_flag:
+			Global.craft.items[4] = InvItem.new(splitted_output[0].to_lower(), load(splitted_output[0].to_lower()), 20)
+			if Global.craft.items[4].texture != null:
+				loaded_flag = true
+			else:
+				OS.delay_msec(300)
 		update_slots()
 
-
+	
 func _on_remove_pressed():
 	selectedSlotCrafting.get_node("Sprite2D").animation = "default"
-	for array_item_index in range(1, inv.items.size()):
-		if inv.items[array_item_index] == null: 
-			inv.items[array_item_index] = craft.items[craftingPos]
-			craft.items[craftingPos] = null
+	for array_item_index in range(1, Global.inv.items.size()):
+		if Global.inv.items[array_item_index] == null: 
+			Global.inv.items[array_item_index] = Global.craft.items[craftingPos]
+			Global.craft.items[craftingPos] = null
 			update_slots()
 			break
 
@@ -464,5 +409,13 @@ func _on_insert_pressed():
 	selectedSlot.get_node("Sprite2D").animation = "selected"
 	update_slots()
 
-	
-
+#func importImage(path):    
+	#var texFile = File.new()
+	#texFile.open(path,File.READ)
+	#var bytes = texFile.get_buffer(texFile.get_len())
+	#var img = Image.new()
+	#var _data = img.load_png_from_buffer(bytes)
+	#var imgtex = ImageTexture.new()
+	#imgtex.create_from_image(img)
+	#texFile.close()
+	#return imgtex

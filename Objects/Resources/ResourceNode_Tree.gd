@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
+#@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
 
 var player_in_area = false
 var isChopped = false
@@ -9,7 +9,7 @@ var isChopped = false
 
 
 func _ready():
-	item = InvItem.new("Stick", preload("res://icons/dummy/stick.png"))
+	item = InvItem.new("icons/dummy/stick.png", load("res://icons/dummy/stick.png"))
 
 func chop_tree():
 	isChopped = true

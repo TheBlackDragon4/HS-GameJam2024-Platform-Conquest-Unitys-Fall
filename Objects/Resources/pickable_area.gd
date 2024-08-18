@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
+#@onready var inv: Inv = preload("res://Inventory/player_inventory.tres")
 @onready var interact_label = $interact_label
 
 var isNear = false
@@ -22,10 +22,10 @@ func _input(event):
 		if event.is_action_pressed("interact"):
 			for body in get_overlapping_bodies():
 				if body.name == "CharacterBody2D":
-					for array_item_index in range(1, inv.items.size()):
+					for array_item_index in range(1, Global.inv.items.size()):
 						#print(array_item_index)
-						if inv.items[array_item_index] == null: 
-							inv.items[array_item_index] = get_parent().item
+						if Global.inv.items[array_item_index] == null: 
+							Global.inv.items[array_item_index] = get_parent().item
 							get_parent().chop_tree()
 							interact_label.visible = false
 							break

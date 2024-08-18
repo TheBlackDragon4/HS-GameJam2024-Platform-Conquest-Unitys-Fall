@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://8152nqo5ofbu"]
 
 [ext_resource type="Script" path="res://Inventory/Inv_UI.gd" id="1_4lb87"]
-[ext_resource type="Texture2D" uid="uid://cxxo1njbpv0gp" path="res://icons/dummy_old/Inventory.png" id="2_dusis"]
+[ext_resource type="Texture2D" uid="uid://cxxo1njbpv0gp" path="res://icons/dummy/Inventory.png" id="2_dusis"]
 [ext_resource type="PackedScene" uid="uid://dpj7yi1pom1hq" path="res://Inventory/inv_ui_slot.tscn" id="3_frcr7"]
 [ext_resource type="Script" path="res://Inventory/GridContainer.gd" id="3_odurl"]
 [ext_resource type="PackedScene" uid="uid://b74u4w8fu1rm0" path="res://Inventory/crafting/craft_ui_slot.tscn" id="5_qxehk"]
