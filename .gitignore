@@ -4,4 +4,7 @@
 # MacOS
 .DS_Store
 .DS_STORE
+
+# Files
+log.txt
 /icons/temp
